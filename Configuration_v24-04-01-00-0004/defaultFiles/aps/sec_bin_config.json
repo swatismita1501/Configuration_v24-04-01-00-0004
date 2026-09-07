@@ -1,0 +1,81 @@
+{
+    // Indicates if this SecBin bin range table is used or not.
+    "enabled": "false",
+
+    //            Start BIN         - Note! The start and end BINs are compared up to the length of the entry
+    //            |||||||| End BIN
+    //            |||||||| |||||||| Min length
+    //            |||||||| |||||||| || Max Length
+    //            |||||||| |||||||| || || Encrypt (0 = no, 1 = yes)
+    //            |||||||| |||||||| || || | Repair invalid tracks
+    //            |||||||| |||||||| || || | | 0 = Do not attempt repair
+    //            |||||||| |||||||| || || | | 1 = Repair track 1 only           after failed encryption attempt
+    //            |||||||| |||||||| || || | | 2 = Repair track 2 only           after failed encryption attempt
+    //            |||||||| |||||||| || || | | 3 = Repair track 1 and/or track 2 after failed encryption attempt
+    //            |||||||| |||||||| || || | | 4 = Repair track 1 only           before       encryption attempt
+    //            |||||||| |||||||| || || | | 5 = Repair track 2 only           before       encryption attempt
+    //            |||||||| |||||||| || || | | 6 = Repair track 1 and/or track 2 before       encryption attempt
+    //            |||||||| |||||||| || || | | 7 = Repair track 1 and/or track 2 before       encryption attempt
+    //            |||||||| |||||||| || || | | Decode additional card information flag
+    //            |||||||| |||||||| || || | | | 0 = Do not decode
+    //            |||||||| |||||||| || || | | | 1 = Decode as VISA Fleet
+    //            |||||||| |||||||| || || | | | 2 = Decode as MasterCard Fleet
+    //            |||||||| |||||||| || || | | | 3 = Decode as Fleet One
+    //            |||||||| |||||||| || || | | | 4 = Decode as Voyager Fleet
+    //            |||||||| |||||||| || || | | | 5 = Decode as WEX Legacy Fleet
+    //            |||||||| |||||||| || || | | | 6 = Decode as WEX V3 Fleet
+    //            |||||||| |||||||| || || | | | 7 = Decode as WEX V4 Fleet
+    //            |||||||| |||||||| || || | | | 8 = Decode as Voyager Fleet and get Technology Indicator
+    //            |||||||| |||||||| || || | | | 9 = Decode as a ProxId card
+    //            |||||||| |||||||| || || | | | A = Decode as a Solutran card
+    //            |||||||| |||||||| || || | | | B = Decode as Voyager Fleet for Manual Entry
+    //            |||||||| |||||||| || || | | | | Encryption profile ID (0-9, 0 = default)
+    "secbin.01": "6011     6011     14 16 1 0 0 0",
+    "secbin.02": "622126   622925   14 16 1 0 0 0",
+    "secbin.03": "644      649      14 16 1 0 0 0",
+    "secbin.04": "65       65       14 16 1 0 0 0",
+    "secbin.05": "51       55       16 19 1 0 0 0",
+    "secbin.06": "2221     2720     16 19 1 0 0 0",
+    "secbin.07": "4        4        13 16 1 0 0 0",
+    "secbin.08": "34       34       14 15 1 0 0 0",
+    "secbin.09": "37       37       14 15 1 0 0 0",
+    "secbin.10": "0        9        10 20 0 0 0 0",
+    "secbin.11": "",
+    "secbin.12": "",
+    "secbin.13": "",
+    "secbin.14": "",
+    "secbin.15": "",
+    "secbin.16": "",
+    "secbin.17": "",
+    "secbin.18": "",
+    "secbin.19": "",
+    "profiles": {
+        // Indicates if profiles is used or not.
+        "enabled": "false",
+
+        // Default profile configuration (Profile ID = 0).
+        "profile.0": {
+            "encryptionType": "19",
+            "onGuardSde": {
+                "encryptionModel": "0",
+                "encryptionAlgorithm": "1",
+                "format": "0",
+                "blockMode": "0",
+                "jobsEmv": "3,5",
+                "jobsChip": "0,1,2",
+                "jobsManual": "8,12,16",
+                "jobsMsr": "18,19",
+                "keyAdvanceMode": "1",
+                "keyIndex": "5",
+                "paddingMode": "4",
+                "messageFormat": "0",
+                "separator": "7C"
+            },
+            "masking": {
+                "clearLeading": "6",
+                "clearTrailing": "4",
+                "maskDiscretionaryData": "true"
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "version": {
+        "major": 1,
+        "minor": 0,
+        "patch": 0,
+        "full": "1.0.0"
+    },
+    // Define the connection type
+    "connectionType": "client",
+	"client": {
+		"tls": {
+			"enabled": false,
+			"registrationCertificatePath": "terminal_client.bks",
+			"connectionCertificatePath": "terminal_client.bks"
+		},
+		"registration": {
+			"url": "ws://192.168.1.79:50002",
+			"timeoutMs": 3000,
+			"customData": {
+				"user": "userOne",
+				"password": "123456"
+			}
+		},
+		"connection": {
+			"enableRandomInterval": true,
+			"timeoutMs": 3000,
+			"reconnectInterval": {
+				"minimumMs": 1000,
+				"maximumMs": 3000,
+				"retries": 50
+			}
+		},
+		"pingPong": {
+			"enabled": false,
+			"pingInterval": {
+				"timeoutMs": 10000,
+				"timeoutMissedMs": 3000,
+				"retries": 10
+			}
+		}
+	}
+}

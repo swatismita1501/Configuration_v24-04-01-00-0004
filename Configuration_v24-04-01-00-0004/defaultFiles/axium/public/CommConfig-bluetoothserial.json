@@ -1,0 +1,8 @@
+{
+  "commsType": "BluetoothSerial",
+  "commsConfig": {
+    "connectionTimeoutMs": 30000,
+    "deviceMacAddress": "",
+    "traceLevel":"ERROR"
+  }
+}

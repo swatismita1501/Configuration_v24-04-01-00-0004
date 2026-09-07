@@ -1,0 +1,26 @@
+{
+    "onGuardSde": {
+        //  0 -> tag 56
+        //  1 -> tag 57   (Track 2 Equivalent Data)
+        //  2 -> tag 5A   (PAN)
+        //  3 -> tag 5F20 (Cardholder Name)
+        //  4 -> tag 5F24 (Expiry Date)
+        //  5 -> tag 5F30 (Service Code)
+        //  6 -> tag 9F05 (Application Discretionay Data)
+        //  7 -> tag 9F0B (Cardholder Name Extended)
+        //  8 -> tag 9F1F (Track 1 Discretionay Data)
+        //  9 -> tag 9F20 (Track 2 Discretionay Data)
+        // 10 -> tag 9F6B 
+        "jobsChip": "0,1,2",
+
+        // 1 -> X9.23
+        // 2 -> PKCS7
+        // 3 -> ISO 7816-4
+        // 4 -> ISO 9797-1-M1
+        // 5 -> Fill FF
+        "paddingMode": "4",
+        
+        // 2 hexadecimal digits indicating the character to use as a data separator when required.
+        "separator": "7C"
+    }
+}

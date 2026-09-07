@@ -1,0 +1,1679 @@
+{
+    // Application selection methods:
+    //  "PSE_THEN_AID"
+    //  "PSE_ONLY"
+    //  "PPSE_ONLY"
+    //  "AID_ONLY"
+    //  "PPSE_THEN_AID"
+    "selectionMethod": "PPSE_THEN_AID",
+
+    // Each AID entry must indicate the EMV kernel to use. The supported values are:
+    //   Contact kernelId value:
+    //       "EMV".
+    //   CLESS kernelId values:
+    //       "AMEX"
+    //       "DISCOVER"
+    //       "EFTPOS"
+    //       "INTERAC"
+    //       "JCB"
+    //       "MASTERCARD"or "MASTER"
+    //       "MIR"
+    //       "NSICC"
+    //       "PURE"
+    //       "RUPAY"
+    //       "PBOC" or "UNIONPAY"
+    //       "VISA"
+
+    "aidList": [
+        {
+            "aids": [
+                // Visa Credit or Debit or Easy Entry
+                "A0000000031010",
+
+                // Visa Electron
+                "A0000000032010",
+
+                // Visa Interlink
+                "A0000000033010",
+
+                // US Common Debit AID
+                "A0000000980840"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "VISA",
+
+            // Default DDOL
+            "ddol": "9F 37 04",
+
+            // Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            // Default UDOL
+            "udol": "",
+
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 96",
+
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF918110": "DC 40 00 A8 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 10 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "DC 40 04 F8 00"
+            }
+        },
+        {
+            "aids": [
+                // MasterCard PayPass AID
+                "A0000000041010",
+
+                // US Maestro PayPass AID for debit (Common Debit AID)
+                "A0000000042203",
+
+                // Maestro PayPass AID for debit
+                "A0000000043060"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "MasterCard",
+
+            // Default DDOL
+            "ddol": "9F 37 04",
+
+            // Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            // Default UDOL
+            "udol": "",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 02",
+
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF918110": "FC 50 A8 A0 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "FC 50 A8 F8 00"
+            }
+        },
+        {
+            "aids": [
+                // Voyager
+                "A0000000049999"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "Voyager",
+
+            // Default DDOL
+            "ddol": "9F 37 04",
+
+            // Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            // Default UDOL
+            "udol": "",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 02",
+
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF918110": "FE 50 BC 80 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "FE 50 BC 98 00"
+            }
+        },
+        {
+            "aids": [
+                //Interac AID
+                "A0000002771010"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "INTERAC",
+
+            // Default DDOL
+            "ddol": "9F 37 04",
+
+            // Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            // Default UDOL
+            "udol": "",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 01",
+
+                // Terminal Floor limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF918110": "FC 50 F8 A8 F0",
+
+                // Terminal Action Code Denial
+                "DF918111": "10 10 58 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "FC F8 E4 B8 70"
+            }
+        },
+        {
+            "aids": [
+                // American Express ExpressPay AID
+                "A00000002501"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "AMEX",
+
+            //Default DDOL
+            "ddol": "9F 37 04",
+
+            //Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            //Default UDOL
+            "udol": "",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 01",
+
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF918110": "C8 00 00 00 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "C8 00 00 00 00"
+            }
+        },
+        {
+            "aids": [
+                // American US Common Debit AID
+                "A00000002504"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "AMEX",
+
+            //Default DDOL
+            "ddol": "9F 37 04",
+
+            //Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            //Default UDOL
+            "udol": "",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 01",
+
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF918110": "D5 50 FC 98 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 10 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "DE 00 FC 98 00"
+            }
+        },
+        {
+            "aids": [
+                // Discover DPAS AID
+                "A0000001523010",
+
+                // Discover US Common Debit AID
+                "A0000001524010"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "Discover",
+
+            //Default DDOL
+            "ddol": "9F 37 04",
+
+            //Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            //Default UDOL
+            "udol": "",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 01",
+
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Support extended AIDs.
+                "DF8102": "00",
+
+                // Terminal Action Code Default
+                "DF918110": "DC 00 00 A0 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 10 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "FC E0 9C F8 00"
+            }
+        },
+        {
+            "aids": [
+                // JCB AID
+                "A0000000651010"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "JCB",
+
+            //Default DDOL
+            "ddol": "9F 37 04",
+
+            //Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            //Default UDOL
+            "udol": "",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "02 00",
+
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF918110": "FC 60 24 A8 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 10 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "FC 60 AC F8 00"
+            }
+        },
+        {
+           "aids": [
+               // Union Pay International
+                "A0000003330101"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "UnionPay",
+
+            //Default DDOL
+            "ddol": "9F 37 04",
+
+            //Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            //Default UDOL
+            "udol": "",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 20",
+
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF918110": "D8 40 00 A8 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 10 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "D8 40 04 F8 00"
+            }
+        },
+        {
+            "aids": [
+                // Wright Express (WEX)
+                "A0000007681010"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "WEX",
+
+            //Default DDOL
+            "ddol": "9F 37 04",
+
+            //Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            //Default UDOL
+            "udol": "",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 01",
+
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF918110": "BC 50 FC 80 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "BC D0 FC 98 00"
+            }
+        },
+        {
+            "aids": [
+                // DNA - Common debit
+                "A0000006200620"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "DNA",
+
+            //Default DDOL
+            "ddol": "9F 37 04",
+
+            //Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            //Default UDOL
+            "udol": "",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 01",
+
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF918110": "FC 50 AC A0 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "FC 50 BC F8 00"
+            }
+        },
+        {
+            "aids": [
+                //CPACE AID
+                "A0000000421010",
+                "A0000000422010",
+                "A0000000424010",
+                "A0000000425010",
+                "A0000000426010"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "CPACE",
+
+            // Default DDOL
+            "ddol": "9F 37 04",
+
+            // Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            // Default UDOL
+            "udol": "",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 01",
+
+                // Terminal Floor limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF918110": "FC 50 F8 A8 F0",
+
+                // Terminal Action Code Denial
+                "DF918111": "10 10 58 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "FC F8 E4 B8 70"
+            }
+        },
+        {
+            "aids": [
+                // eftpos Savings
+                "A00000038410",
+
+                // eftpos Cheque
+                "A00000038420"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "EFTPOS",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 02",
+
+                // Terminal Floor limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF918110": "FC 50 98 88 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "06 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "FC 70 BC 98 00",
+
+                // Additional Terminal Capabilities
+                "9F40": "E0 00 F0 A0 01",
+
+                // Transaction Category Code
+                "9F53": "52",
+
+                // AID Options
+                "9F928100" : "01 01 00 00",
+
+                // Transaction Type
+                "9F918701" : "FF",
+
+                // Terminal Transaction Qualifier
+                // MSD supported:   B1b8 1=yes, 0=no
+                // qVSDC supported: B1b6 1=yes, 0=no
+                // EMV supported:   B1b5 1=yes, 0=no
+                "9F66": "34 C0 40 00"
+            }
+        },
+        {
+            "aids": [
+                // EBT AID
+                "A0000000044542"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EMV",
+
+            "emvRecommendedAppName": "EBT",
+
+            // Default DDOL
+            "ddol": "9F 37 04",
+
+            // Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            // Default UDOL
+            "udol": "",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 02",
+
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF918110": "B0 50 9C 80 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "B0 50 9C 80 00"
+            }
+        },
+        {
+            "aids": [
+                // Visa Credit or Debit or Easy Entry
+                "A0000000031010",
+
+                // VISA: US Common Debit AID
+                "A0000000980840",
+
+                // Visa Electron
+                "A0000000032010",
+
+                // Visa Interlink
+                "A0000000033010"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "VISA",
+
+            "emvRecommendedAppName": "VISA",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 96",
+
+                // Terminal Capabilities:
+                // Byte 1
+                // Card Data Input Capability,
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Manual key entry supported     |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Magnetic stripe supported      |
+                // |  - |  - |  1 |  - |  - |  - |  - |  - | IC with contacts supported     |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  0 |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                            |
+                // Byte 2
+                // CVM Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                            |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Plaintext PIN for offline ICC verification |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Enciphered PIN for online verification     |
+                // |  - |  - |  1 |  - |  - |  - |  - |  - | Signature (paper)                          |
+                // |  - |  - |  - |  1 |  - |  - |  - |  - | Enciphered PIN for offline verification    |
+                // |  - |  - |  - |  - |  1 |  - |  - |  - | No CVM Required                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                        |
+                // Byte 3
+                // Security Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                                        |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Static Data Authentication (SDA)                       |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Dynamic Data Authentication (DDA)                      |
+                // |  - |  - |  0 |  - |  - |  - |  - |  - | Capture card                                           |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  1 |  - |  - |  - | Combined DDA/Application Cryptogram Generation (CDA)   |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                                    |
+                "9F33": "E0 F8 C8",
+
+                // Terminal Transaction Qualifier
+                // MSD supported:   B1b8 1=yes, 0=no
+                // qVSDC supported: B1b6 1=yes, 0=no
+                // EMV supported:   B1b5 1=yes, 0=no
+                "9F66": "36 00 40 00",
+
+                //Terminal Action denial
+                "DF04": "01 02",
+
+                // Reader configuration parameters.
+                // Please refer to the specific meaning of the tag and use it with DF8124, DF8123, DF8126, 9F1B.
+                // If this tag is not set then the kernel will use a default value of 7C00.
+                "DF06": "7C 00",
+
+                // Cless Transaction Limit (No CDCVM).
+                "DF8124": "00 00 00 01 00 00",
+
+                // Cless Floor Limit
+                "DF8123": "00 00 00 00 00 00",
+
+                // Cless Cvm Required Limit
+                "DF8126": "00 00 00 00 15 00",
+
+                // Kernel function configuration (Wave2 only). Should be set to 00 00 00 00 00.
+                "DF918165": "00 00 00 00 00",
+
+                // CDCVM is supported. Should be set to 01.
+                "DF91816B": "01",
+
+                // Manual cash configuration. Should be set to 40 00.
+                "DF8106": "40 00"
+            }
+        },
+        {
+            "aids": [
+                // MasterCard PayPass AID
+                "A0000000041010",
+
+                // Maestro PayPass AID for debit
+                "A0000000043060",
+
+                // US Maestro PayPass AID for debit (Common Debit AID)
+                "A0000000042203"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "MASTER",
+
+            "emvRecommendedAppName": "MC",
+
+            // Default Internal TDOL
+            "tdol": "9F 08 02",
+
+            // Default UDOL
+            "udol": "9F 6A 04",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 02",
+
+                // Terminal Risk Management Data
+                "9F1D": "6C F8 80 00 00 00 00 00",
+
+                // Transaction Category Code Mastercard
+                "9F53": "52",
+
+                // Paypass MStripe Application Version Number. Default is 00 01
+                "9F6D": "00 01",
+
+                // Cless Transaction Limit
+                "DF8124": "99 99 99 99 99 99",
+
+                // PayPass Cless Transaction CDCVM Limit
+                "DF8125": "99 99 99 99 99 99",
+
+                // Cless Floor Limit
+                "DF8123": "00 00 00 00 00 00",
+
+                // Cless Cvm Required Limit
+                "DF8126": "00 00 00 00 15 00",
+
+                // CVM capabilities (CVM required)
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                              |
+                // |  X |  - |  - |  - |  - |  - |  - |  - | Plaintext PIN verified by ICC                |
+                // |  - |  X |  - |  - |  - |  - |  - |  - | Enciphered PIN verified online               |
+                // |  - |  - |  X |  - |  - |  - |  - |  - | Signature                                    |
+                // |  - |  - |  - |  X |  - |  - |  - |  - | Enciphered PIN verification performed by ICC |
+                // |  - |  - |  - |  - |  X |  - |  - |  - | No CVM required                              |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                          |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                          |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                          |
+                "DF918205": "F8",
+
+                // CVM capabilities (no CVM required).
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                              |
+                // |  X |  - |  - |  - |  - |  - |  - |  - | Plaintext PIN verified by ICC                |
+                // |  - |  X |  - |  - |  - |  - |  - |  - | Enciphered PIN verified online               |
+                // |  - |  - |  X |  - |  - |  - |  - |  - | Signature                                    |
+                // |  - |  - |  - |  X |  - |  - |  - |  - | Enciphered PIN verification performed by ICC |
+                // |  - |  - |  - |  - |  X |  - |  - |  - | No CVM required                              |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                          |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                          |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                          |
+                "DF918206": "08",
+
+                // Mag-stripe CVM capabilities (CVM required).
+                "DF918207": "10",
+
+                // Mag-stripe CVM capabilities (no CVM required).
+                "DF918208": "00",
+
+                // Terminal Action Code Default
+                "DF918110": "FC 50 0C 88 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "FC 50 0C 88 00",
+
+                // Resistance relay protocol (RRP) is supported.
+                // "0" : Not supported
+                // "1" : Supported
+                "DF91820C": "01",
+
+                // Terminal supports torn transaction recovery.
+                // "0" : Not supported
+                // "1" : Supported
+                "DF918203": "01",
+
+                // CDCVM is suported.
+                // "0" : Not supported
+                // "1" : Supported
+                "DF918204": "01",
+
+                // DEF_TAG_M_TRANS_MODE
+                // 01=EMV mode only
+                // 00=EMV and MSD mode
+                "DF918201": "01"
+            }
+        },
+        {
+            "aids": [
+                //Interac AID
+                "A0000002771010"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "INTERAC",
+
+            "emvRecommendedAppName": "DEBIT",
+
+            // Default Internal TDOL
+            "tdol": "9F 08 02",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 02",
+
+                // Terminal Capabilities:
+                // Byte 1
+                // Card Data Input Capability,
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Manual key entry supported     |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Magnetic stripe supported      |
+                // |  - |  - |  1 |  - |  - |  - |  - |  - | IC with contacts supported     |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  0 |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                            |
+                // Byte 2
+                // CVM Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                            |
+                // |  0 |  - |  - |  - |  - |  - |  - |  - | Plaintext PIN for offline ICC verification |
+                // |  - |  0 |  - |  - |  - |  - |  - |  - | Enciphered PIN for online verification     |
+                // |  - |  - |  0 |  - |  - |  - |  - |  - | Signature (paper)                          |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | Enciphered PIN for offline verification    |
+                // |  - |  - |  - |  - |  1 |  - |  - |  - | No CVM Required                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                        |
+                // Byte 3
+                // Security Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                                        |
+                // |  0 |  - |  - |  - |  - |  - |  - |  - | Static Data Authentication (SDA)                       |
+                // |  - |  0 |  - |  - |  - |  - |  - |  - | Dynamic Data Authentication (DDA)                      |
+                // |  - |  - |  0 |  - |  - |  - |  - |  - | Capture card                                           |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  0 |  - |  - |  - | Combined DDA/Application Cryptogram Generation (CDA)   |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                                    |
+                "9F33": "E0 08 00",
+
+                // Merchant Type Indicator
+                //   in range 01 to 05
+                "9F58": "03",
+
+                // Terminal Transaction Information
+                // Byte 1
+                // | b8 | b7 | b6 | b5 | b4 | b3 |         Meaning                      |
+                // |  1 |  - |  - |  - |  - |  - | Reader with display capability       |
+                // |  - |  1 |  - |  - |  - |  - | Contact application available        |
+                // |  - |  - |  1 |  - |  - |  - | Contact application at other terminal|
+                // |  - |  - |  - |  1 |  - |  - | CDA supported                        |
+                // |  - |  - |  - |  - |  1 |  - | Offline capable terminal             |
+                // |  - |  - |  - |  - |  - |  1 | Online PIN supported                 |
+                // Byte 2
+                // | b8 | b7 | b6-4 | b3 | b2 | b1 |                Meaning                 |
+                // |  0 |  0 |   -  |  - |  - |  - | Contactless only Capable               |
+                // |  0 |  1 |   -  |  - |  - |  - | Contactless & MSD Capable              |
+                // |  1 |  0 |   -  |  - |  - |  - | Contactless, Chip & MSD Capable        |
+                // |  1 |  1 |   -  |  - |  - |  - | Contactless & Chip Capable             |
+                // |  - |  - |  000 |  - |  - |  - | RFU                                    |
+                // |  - |  - |    - |  1 |  - |  - | Mobile NFC device (FFI=03) accepted    |
+                // |  - |  - |    - |  - |  1 |  - | Contacless Card (FFI=00,01,02) accepted|
+                // |  - |  - |    - |  - |  - |  1 | Always 1                               |
+                // Byte 3: All bits are RFU.
+                "9F59": "C0 C7 00",
+
+                // Receipt Limit
+                "9F5D": "00 00 00 00 00 00",
+
+                // Terminal Option Status
+                //    Default E0 00 (Canada)
+                //    00 00 (US)
+                "9F5E": "00 00",
+
+                // Cless Transaction Limit
+                "DF8124": "00 00 00 01 00 00",
+
+                // Cless Floor Limit
+                "DF8123": "00 00 00 00 00 00",
+
+                // Cless Cvm Required Limit
+                "DF8126": "00 00 00 00 10 00",
+
+                // Terminal Action Code Default
+                "DF918110": "FC 68 FC F8 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "FC 68 FC F8 00",
+
+                // CDCVM Retry Limit
+                "DF918451": "03"
+            }
+        },
+        {
+            "aids": [
+                // Discover AID for debit
+                "A0000003241010",
+
+                // Discover DPAS AID
+                "A0000001523010",
+
+                // Discover US Common Debit AID
+                "A0000001524010"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "DISCOVER",
+
+            "emvRecommendedAppName": "DIS",
+
+            //Default DDOL
+            "ddol": "9F 37 04",
+
+            //Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 01",
+
+                // Terminal Capabilities:
+                // Byte 1
+                // Card Data Input Capability,
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Manual key entry supported     |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Magnetic stripe supported      |
+                // |  - |  - |  1 |  - |  - |  - |  - |  - | IC with contacts supported     |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  0 |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                            |
+                // Byte 2
+                // CVM Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                            |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Plaintext PIN for offline ICC verification |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Enciphered PIN for online verification     |
+                // |  - |  - |  1 |  - |  - |  - |  - |  - | Signature (paper)                          |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | Enciphered PIN for offline verification    |
+                // |  - |  - |  - |  - |  1 |  - |  - |  - | No CVM Required                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                        |
+                // Byte 3
+                // Security Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                                        |
+                // |  0 |  - |  - |  - |  - |  - |  - |  - | Static Data Authentication (SDA)                       |
+                // |  - |  0 |  - |  - |  - |  - |  - |  - | Dynamic Data Authentication (DDA)                      |
+                // |  - |  - |  0 |  - |  - |  - |  - |  - | Capture card                                           |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  1 |  - |  - |  - | Combined DDA/Application Cryptogram Generation (CDA)   |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                                    |
+                "9F33": "E0 E8 08",
+
+                // Terminal Transaction Qualifier
+                // MSD supported:   B1b8 1=yes, 0=no
+                // qVSDC supported: B1b6 1=yes, 0=no
+                // EMV supported:   B1b5 1=yes, 0=no
+                "9F66": "36 60 C0 00",
+
+                // Cless Transaction Limit
+                "DF8124": "00 00 00 01 00 00",
+
+                // Cless Floor Limit
+                "DF8123": "00 00 00 00 00 00",
+
+                // Cless Cvm Required Limit
+                "DF8126": "00 00 00 00 15 00",
+
+                // Support issuer script process. Should be set to 00.
+                "DF8117": "00",
+
+                // Support extended AIDs.
+                "DF8102": "00",
+
+                // Reader configuration parameters
+                // If this tag is not set then the kernel will use a default value of FC 80.
+                // Status check supported: B1b8 1=yes, 0=no
+                "DF06": "7C 80"
+            }
+        },
+        {
+            "aids": [
+                // American Express ExpressPay AID or AMEX
+                "A00000002501"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "AMEX",
+
+            "emvRecommendedAppName": "AMEX",
+
+            // Default Internal TDOL
+            "tdol": "9F 08 02",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 01",
+
+                // Terminal Capabilities:
+                // Byte 1
+                // Card Data Input Capability,
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Manual key entry supported     |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Magnetic stripe supported      |
+                // |  - |  - |  1 |  - |  - |  - |  - |  - | IC with contacts supported     |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  0 |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                            |
+                // Byte 2
+                // CVM Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                            |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Plaintext PIN for offline ICC verification |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Enciphered PIN for online verification     |
+                // |  - |  - |  1 |  - |  - |  - |  - |  - | Signature (paper)                          |
+                // |  - |  - |  - |  1 |  - |  - |  - |  - | Enciphered PIN for offline verification    |
+                // |  - |  - |  - |  - |  1 |  - |  - |  - | No CVM Required                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                        |
+                // Byte 3
+                // Security Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                                        |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Static Data Authentication (SDA)                       |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Dynamic Data Authentication (DDA)                      |
+                // |  - |  - |  0 |  - |  - |  - |  - |  - | Capture card                                           |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  1 |  - |  - |  - | Combined DDA/Application Cryptogram Generation (CDA)   |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                                    |
+                "9F33": "E0 F8 C8",
+
+                // ExpressPay Terminal Capabilities
+                //   00 = ExpressPay 1.0
+                //   40 = ExpressPay 2.0 Magstripe Only
+                //   80 = ExpressPay 2.0 EMV and Magstripe
+                //   C0 = ExpressPay Mobile
+                "9F6D": "C0",
+
+                // ExpressPay Terminal Transaction Capabilities
+                "9F6E": "98 F0 00 00",
+
+                // Expresspay unpredictable number range.
+                "DF44": "00 3C",
+
+                // Cless Transaction Limit
+                "DF8124": "00 00 00 00 15 00",
+
+                // Cless Floor Limit
+                "DF8123": "00 00 00 00 00 00",
+
+                // Cless Cvm Required Limit
+                "DF8126": "00 00 00 00 10 00",
+
+                // Try again when CD-CVM requires user to look at the mobile device.
+                "DF8130": "00",
+
+                // MSD Supported: 00=yes, 01=no
+                "DF8135": "01",
+
+                // Terminal Action Code Default
+                "DF918110": "DC 50 84 00 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "C4 00 00 00 00"
+            }
+        },
+        {
+            "aids": [
+                // American US Common Debit AID
+                "A00000002504"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "AMEX",
+
+            "emvRecommendedAppName": "AMEX",
+
+            //Default DDOL
+            "ddol": "9F 37 04",
+
+            //Default TDOL
+            "tdol": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04",
+
+            //Default UDOL
+            "udol": "",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 01",
+
+                // Terminal Capabilities:
+                // Byte 1
+                // Card Data Input Capability,
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Manual key entry supported     |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Magnetic stripe supported      |
+                // |  - |  - |  1 |  - |  - |  - |  - |  - | IC with contacts supported     |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  0 |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                            |
+                // Byte 2
+                // CVM Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                            |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Plaintext PIN for offline ICC verification |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Enciphered PIN for online verification     |
+                // |  - |  - |  1 |  - |  - |  - |  - |  - | Signature (paper)                          |
+                // |  - |  - |  - |  1 |  - |  - |  - |  - | Enciphered PIN for offline verification    |
+                // |  - |  - |  - |  - |  1 |  - |  - |  - | No CVM Required                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                        |
+                // Byte 3
+                // Security Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                                        |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Static Data Authentication (SDA)                       |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Dynamic Data Authentication (DDA)                      |
+                // |  - |  - |  0 |  - |  - |  - |  - |  - | Capture card                                           |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  1 |  - |  - |  - | Combined DDA/Application Cryptogram Generation (CDA)   |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                                    |
+                "9F33": "E0 F8 C8",
+
+                // ExpressPay Terminal Capabilities
+                //   00 = ExpressPay 1.0
+                //   40 = ExpressPay 2.0 Magstripe Only
+                //   80 = ExpressPay 2.0 EMV and Magstripe
+                //   C0 = ExpressPay Mobile
+                "9F6D": "C0",
+
+                // ExpressPay Terminal Transaction Capabilities
+                "9F6E": "98 F0 00 00",
+
+                // Expresspay unpredictable number range.
+                "DF44": "00 3C",
+
+                // Cless Transaction Limit
+                "DF8124": "00 00 00 00 15 00",
+
+                // Cless Floor Limit
+                "DF8123": "00 00 00 00 00 00",
+
+                // Cless Cvm Required Limit
+                "DF8126": "00 00 00 00 10 00",
+
+                // Try again when CD-CVM requires user to look at the mobile device.
+                "DF8130": "00",
+
+                // MSD Supported: 00=yes, 01=no
+                "DF8135": "01",
+
+                // Terminal Action Code Default
+                "DF918110": "D5 50 FC 98 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 10 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "DE 00 FC 98 00"
+            }
+        },
+        {
+            "aids": [
+                // Union Pay International
+                "A0000003330101"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "PBOC",
+
+            "emvRecommendedAppName": "UPI",
+
+            // Default DDOL
+            "ddol": "9F 37 04 E0 68 08 00 00 13 9F 6A 04 E0 48 C8",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 20",
+
+                // Terminal Capabilities:
+                // Byte 1
+                // Card Data Input Capability,
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Manual key entry supported     |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Magnetic stripe supported      |
+                // |  - |  - |  1 |  - |  - |  - |  - |  - | IC with contacts supported     |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  0 |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                            |
+                // Byte 2
+                // CVM Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                            |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Plaintext PIN for offline ICC verification |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Enciphered PIN for online verification     |
+                // |  - |  - |  1 |  - |  - |  - |  - |  - | Signature (paper)                          |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | Enciphered PIN for offline verification    |
+                // |  - |  - |  - |  - |  1 |  - |  - |  - | No CVM Required                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                        |
+                // Byte 3
+                // Security Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                                        |
+                // |  0 |  - |  - |  - |  - |  - |  - |  - | Static Data Authentication (SDA)                       |
+                // |  - |  0 |  - |  - |  - |  - |  - |  - | Dynamic Data Authentication (DDA)                      |
+                // |  - |  - |  0 |  - |  - |  - |  - |  - | Capture card                                           |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  1 |  - |  - |  - | Combined DDA/Application Cryptogram Generation (CDA)   |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                                    |
+                "9F33": "E0 E8 08",
+
+                // Terminal Transaction Qualifier
+                //1st byte: EMV A6, MSD 86
+                "9F66": "36 00 40 00",
+
+                // Cless Transaction Limit
+                "DF8124": "00 00 00 01 00 00",
+
+                // Cless Floor Limit
+                "DF8123": "00 00 00 00 00 00",
+
+                // Cless Cvm Required Limit
+                "DF8126": "00 00 00 00 30 00",
+
+                // Terminal Action Code Default
+                "DF918110": "DC 50 FC 98 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 10 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "DE 00 FC 98 00"
+            }
+        },
+        {
+            "aids": [
+                // JCB AID
+                "A0000000651010"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "JCB",
+
+            "emvRecommendedAppName": "JCB",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 20",
+
+                // JCB Cless Transaction Limit
+                "DF918402": "00 00 00 01 00 00",
+
+                // JCB Cless Floor Limit
+                "DF918401": "00 00 00 00 00 00",
+
+                // JCB Cless CVM Limit
+                "DF918403": "00 00 00 00 10 00",
+
+                // Terminal Action Code Default
+                "DF918110": "FC 60 24 A8 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 10 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "FC 60 AC F8 00",
+
+                // Biased selection threshold.
+                "DF918409": "00 00 27 10",
+
+                // Target percentages.
+                "DF918406": "00",
+
+                // Maximum target percentage.
+                "DF918405": "20",
+
+                // JCB COMBINATION OPTIONS
+                // MSD supported: B1b3 1=no, 0=yes
+                // see JCB Contactless IC Terminal Specification V1.2 Annex A.3
+                "DF918404": "2F 00",
+
+                // JCB Terminal interchange profiles
+                // see JCB Contactless IC Terminal Specification V1.2 Annex A.6
+                "DF918408": "73 80 00"
+            }
+        },
+        {
+            "aids": [
+                // CPACE AID
+                "A0000000421010",
+                "A0000000422010",
+                "A0000000424010",
+                "A0000000425010",
+                "A0000000426010"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "CPACE",
+
+            "emvRecommendedAppName": "CPACE",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 20",
+
+                // Cless Transaction Limit
+                "DF8124": "00 00 00 01 00 00",
+
+                // Cless Floor Limit
+                "DF8123": "00 00 00 00 15 00",
+
+                // Cless Transaction CDCVM Limit
+                "DF8125": "99 99 99 99 99 99",
+
+                // Cless Cvm Required Limit
+                "DF8126": "00 00 00 00 10 00",
+
+                // CPC_CVM_CAP_REQCVM
+                "DF919101": "08",
+
+                // CPC_CVM_CAP_NOREQCVM
+                "DF919102": "F8"
+            }
+        },
+        {
+            "aids": [
+                // eftpos Savings
+                "A00000038410",
+
+                // eftpos Cheque
+                "A00000038420"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "EFTPOS",
+
+            "emvRecommendedAppName": "EFTPOS",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 02",
+
+                // Terminal Transaction Qualifier
+                // CDCVM supported:   B3b7 1=yes, 0=no
+                "9F66": "00 00 40 00",
+
+                // Transaction Category Code
+                "9F53": "52",
+
+                // Cless Transaction Limit
+                "DF8124": "99 99 99 99 99 99",
+
+                // Cless Floor Limit
+                "DF8123": "00 00 00 00 15 00",
+
+                // Cless Cvm Required Limit
+                "DF8126": "00 00 00 02 00 00",
+
+                // Terminal Floor limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Denial
+                "DF918111": "06 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "FC 70 BC 98 00",
+
+                // Additional Terminal Capabilities
+                "9F40": "E0 00 F0 A0 01",
+
+                // Terminal Capabilities:
+                // Byte 1
+                // Card Data Input Capability,
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Manual key entry supported     |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Magnetic stripe supported      |
+                // |  - |  - |  1 |  - |  - |  - |  - |  - | IC with contacts supported     |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  0 |  - |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                            |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                            |
+                // Byte 2
+                // CVM Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                            |
+                // |  0 |  - |  - |  - |  - |  - |  - |  - | Plaintext PIN for offline ICC verification |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Enciphered PIN for online verification     |
+                // |  - |  - |  0 |  - |  - |  - |  - |  - | Signature (paper)                          |
+                // |  - |  - |  - |  1 |  - |  - |  - |  - | Enciphered PIN for offline verification    |
+                // |  - |  - |  - |  - |  0 |  - |  - |  - | No CVM Required                            |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                        |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                        |
+                // Byte 3
+                // Security Capability
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                                        |
+                // |  1 |  - |  - |  - |  - |  - |  - |  - | Static Data Authentication (SDA)                       |
+                // |  - |  1 |  - |  - |  - |  - |  - |  - | Dynamic Data Authentication (DDA)                      |
+                // |  - |  - |  0 |  - |  - |  - |  - |  - | Capture card                                           |
+                // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  1 |  - |  - |  - | Combined DDA/Application Cryptogram Generation (CDA)   |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                                    |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                                    |
+                "9F33": "E0 50 C8",
+
+                // AID Options
+                "9F928100" : "01 01 00 00",
+
+                // Transaction Type
+                "9F918701" : "FF",
+
+                // Terminal Transaction Qualifier
+                // MSD supported:   B1b8 1=yes, 0=no
+                // qVSDC supported: B1b6 1=yes, 0=no
+                // EMV supported:   B1b5 1=yes, 0=no
+                "9F66": "34 C0 40 00"
+            }
+        },
+        {
+            "aids": [
+                // EBT AID
+                "A0000000044542"
+            ],
+
+            "allowExtendedAid": true,
+
+            "kernelId": "MASTER",
+
+            "emvRecommendedAppName": "EBT",
+
+            // Default Internal TDOL
+            "tdol": "9F 08 02",
+
+            // Default UDOL
+            "udol": "9F 6A 04",
+
+            "tags": {
+                // Application Version number. Default is 00 02
+                "9F09": "00 02",
+
+                // Terminal Risk Management Data
+                "9F1D": "6C F8 80 00 00 00 00 00",
+
+                // Transaction Category Code Mastercard
+                "9F53": "52",
+
+                // Paypass MStripe Application Version Number. Default is 00 01
+                "9F6D": "00 01",
+
+                // Cless Transaction Limit
+                "DF8124": "99 99 99 99 99 99",
+
+                // PayPass Cless Transaction CDCVM Limit
+                "DF8125": "99 99 99 99 99 99",
+
+                // Cless Floor Limit
+                "DF8123": "00 00 00 00 00 00",
+
+                // Cless Cvm Required Limit
+                "DF8126": "00 00 00 00 00 00",
+
+                // CVM capabilities (CVM required)
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                              |
+                // |  X |  - |  - |  - |  - |  - |  - |  - | Plaintext PIN verified by ICC                |
+                // |  - |  X |  - |  - |  - |  - |  - |  - | Enciphered PIN verified online               |
+                // |  - |  - |  X |  - |  - |  - |  - |  - | Signature                                    |
+                // |  - |  - |  - |  X |  - |  - |  - |  - | Enciphered PIN verification performed by ICC |
+                // |  - |  - |  - |  - |  X |  - |  - |  - | No CVM required                              |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                          |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                          |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                          |
+                "DF918205": "40",
+
+                // CVM capabilities (no CVM required).
+                // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                              |
+                // |  X |  - |  - |  - |  - |  - |  - |  - | Plaintext PIN verified by ICC                |
+                // |  - |  X |  - |  - |  - |  - |  - |  - | Enciphered PIN verified online               |
+                // |  - |  - |  X |  - |  - |  - |  - |  - | Signature                                    |
+                // |  - |  - |  - |  X |  - |  - |  - |  - | Enciphered PIN verification performed by ICC |
+                // |  - |  - |  - |  - |  X |  - |  - |  - | No CVM required                              |
+                // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                          |
+                // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                          |
+                // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                          |
+                "DF918206": "40",
+
+                // Mag-stripe CVM capabilities (CVM required).
+                "DF918207": "40",
+
+                // Mag-stripe CVM capabilities (no CVM required).
+                "DF918208": "40",
+
+                // Terminal Action Code Default
+                "DF918110": "F4 50 04 80 0C",
+
+                // Terminal Action Code Denial
+                "DF918111": "00 00 80 00 00",
+
+                // Terminal Action Code Online
+                "DF918112": "F4 50 04 80 0C"
+            }
+        }
+    ],
+    "visaDrl" : [
+        {
+            // Application Program ID
+            "9F5A":"00 08 40 08 40",
+
+            // Cless Transaction Limit
+            "DF8124": "00 00 00 01 00 00",
+
+            // Cless Floor Limit
+            "DF8123": "00 00 00 00 15 00",
+
+            // Cless Cvm Required Limit
+            "DF8126": "00 00 00 00 10 00"
+        }
+    ],
+    "amexDrl" : [
+        {
+            // Default DRL set (Doesn't contain tag DF91820F)
+            // Cless Transaction Limit
+            "DF8124": "00 00 00 00 15 00",
+
+            // Cless Floor Limit
+            "DF8123": "00 00 00 00 12 00",
+
+            // Cless Cvm Required Limit
+            "DF8126": "00 00 00 00 10 00"
+        },
+        {
+            // Dynamic Reader Limit Set ID
+            "DF91820F":"06",
+
+            // Cless Transaction Limit
+            "DF8124": "00 00 00 00 07 00",
+
+            // Cless Floor Limit
+            "DF8123": "00 00 00 00 02 00",
+
+            // Cless Cvm Required Limit
+            "DF8126": "00 00 00 00 04 00"
+        },
+        {
+            // Dynamic Reader Limit Set ID
+            "DF91820F":"0B",
+
+            // Cless Transaction Limit
+            "DF8124": "00 00 00 00 03 00",
+
+            // Cless Floor Limit
+            "DF8123": "00 00 00 00 02 00",
+
+            // Cless Cvm Required Limit
+            "DF8126": "00 00 00 00 01 00"
+        }
+    ],
+    "globalTags": {
+        // Currency code
+        // 01 24 for Canada
+        // 08 40 for US
+        "5F2A": "08 40",
+
+        // Currency Exponent
+        "5F36": "02",
+
+        // Country code
+        // 01 24 for Canada
+        // 08 40 for US
+        "9F1A": "08 40",
+
+        // Terminal Floor Limit
+        "9F1B": "00 00 00 00",
+
+        // Terminal Identifier
+        "9F1C": "31 32 33 34 31 32 33 34",
+
+        // Terminal Capabilities:
+        // Byte 1
+        // Card Data Input Capability,
+        // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                |
+        // |  1 |  - |  - |  - |  - |  - |  - |  - | Manual key entry supported     |
+        // |  - |  1 |  - |  - |  - |  - |  - |  - | Magnetic stripe supported      |
+        // |  - |  - |  1 |  - |  - |  - |  - |  - | IC with contacts supported     |
+        // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                            |
+        // |  - |  - |  - |  - |  0 |  - |  - |  - | RFU                            |
+        // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                            |
+        // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                            |
+        // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                            |
+        // Byte 2
+        // CVM Capability
+        // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                            |
+        // |  1 |  - |  - |  - |  - |  - |  - |  - | Plaintext PIN for offline ICC verification |
+        // |  - |  1 |  - |  - |  - |  - |  - |  - | Enciphered PIN for online verification     |
+        // |  - |  - |  1 |  - |  - |  - |  - |  - | Signature (paper)                          |
+        // |  - |  - |  - |  1 |  - |  - |  - |  - | Enciphered PIN for offline verification    |
+        // |  - |  - |  - |  - |  1 |  - |  - |  - | No CVM Required                            |
+        // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                        |
+        // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                        |
+        // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                        |
+        // Byte 3
+        // Security Capability
+        // | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 |         Meaning                                        |
+        // |  1 |  - |  - |  - |  - |  - |  - |  - | Static Data Authentication (SDA)                       |
+        // |  - |  1 |  - |  - |  - |  - |  - |  - | Dynamic Data Authentication (DDA)                      |
+        // |  - |  - |  0 |  - |  - |  - |  - |  - | Capture card                                           |
+        // |  - |  - |  - |  0 |  - |  - |  - |  - | RFU                                                    |
+        // |  - |  - |  - |  - |  1 |  - |  - |  - | Combined DDA/Application Cryptogram Generation (CDA)   |
+        // |  - |  - |  - |  - |  - |  0 |  - |  - | RFU                                                    |
+        // |  - |  - |  - |  - |  - |  - |  0 |  - | RFU                                                    |
+        // |  - |  - |  - |  - |  - |  - |  - |  0 | RFU                                                    |
+        "9F33": "E0 F8 C8",
+
+        //Terminal Type
+        "9F35": "22",
+
+        // Additional Terminal Capabilities
+        "9F40": "F8 00 F0 A3 FF",
+
+        // Threshold Value Random Selection
+        "DF91810C": "00 00 00 00 00 00",
+
+        // Max Perc Random Selection
+        "DF91810E": "00",
+
+        // Target Perc Random Selection
+        "DF91810D": "00",
+
+        // Terminal Action Code Default
+        "DF918110": "DC 40 00 A8 00",
+
+        // Terminal Action Code Denial
+        "DF918111": "00 10 00 00 00",
+
+        // Terminal Action Code Online
+        "DF918112": "DC 40 04 F8 00"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "version": {
+        "major": 1,
+        "minor": 0,
+        "patch": 0,
+        "full": "1.0.0"
+    },
+    "connectionType": "server",
+	"server": {
+        "tls": {
+            "enabled": false,
+            "certificatePath": "ARC.PFX"
+        },
+        "inactivityTimeoutMs": 120000,
+        "connectionTimeoutMs": 30000,
+        // Define bindInterface used for server mode.
+        //   '0.0.0.0'
+        //   'localhost'
+        //   'aaa.bbb.yyy.zzz'
+        "bindInterface": "0.0.0.0", 
+        "port": 50000
+    }
+}

@@ -1,0 +1,447 @@
+{
+    // These fields are for customer use to identify the purpose and version of a particular file.
+    "description": "Moby EMV configuration file",
+    "fileVersion": "0.0",
+    
+    "contactAids": [
+        {
+            // VISA
+            "aids": [
+                "A0000000031010",
+                "A0000000032010"
+            ],
+            
+            "terminalApplicationVersion": "00 96",
+            "lowestSupportedIccApplicationVersion": "00 8C",
+            "priorityIndex": "00",
+            "applicationIdType": "credit",
+            "applicationSelectionFlags": "01",
+            "tags": {
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF03": "DC 40 00 A8 00",
+
+                // Terminal Action Code Denial
+                "DF04": "00 10 00 00 00",
+
+                // Terminal Action Code Online
+                "DF05": "DC 40 04 F8 00",
+                
+                // Default DDOL
+                "DF15": "9F 37 04",
+                
+                // Default TDOL
+                "DF18": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04"
+            }
+        },
+        {
+            // Mastercard
+            "aids": [
+                "A0000000041010"
+            ],
+            
+            "terminalApplicationVersion": "00 02",
+            "lowestSupportedIccApplicationVersion": "00 02",
+            "priorityIndex": "00",
+            "applicationIdType": "credit",
+            "applicationSelectionFlags": "01",
+            "tags": {
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF03": "FC 50 A8 A0 00",
+
+                // Terminal Action Code Denial
+                "DF04": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF05": "FC 50 A8 F8 00",
+                
+                // Default DDOL
+                "DF15": "9F 37 04",
+                
+                // Default TDOL
+                "DF18": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04"
+            }
+        },
+        {
+            // Amex
+            "aids": [
+                "A00000002501"
+            ],
+            
+            "terminalApplicationVersion": "00 01",
+            "lowestSupportedIccApplicationVersion": "00 01",
+            "priorityIndex": "00",
+            "applicationIdType": "credit",
+            "applicationSelectionFlags": "01",
+            "tags": {
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF03": "C8 00 00 00 00",
+
+                // Terminal Action Code Denial
+                "DF04": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF05": "C8 00 00 00 00",
+                
+                // Default DDOL
+                "DF15": "9F 37 04",
+                
+                // Default TDOL
+                "DF18": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04"
+            }
+        },
+        {
+            // Discover
+            "aids": [
+                "A0000001523010"
+            ],
+            
+            "terminalApplicationVersion": "00 01",
+            "lowestSupportedIccApplicationVersion": "00 01",
+            "priorityIndex": "00",
+            "applicationIdType": "credit",
+            "applicationSelectionFlags": "01",
+            "tags": {
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF03": "DC 00 00 20 00",
+
+                // Terminal Action Code Denial
+                "DF04": "00 10 00 00 00",
+
+                // Terminal Action Code Online
+                "DF05": "FC E0 9C F8 00",
+                
+                // Default DDOL
+                "DF15": "9F 37 04",
+                
+                // Default TDOL
+                "DF18": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04"
+            }
+        },
+        {
+            // JCB
+            "aids": [
+                "A0000000651010"
+            ],
+            
+            "terminalApplicationVersion": "02 00",
+            "lowestSupportedIccApplicationVersion": "01 20",
+            "priorityIndex": "00",
+            "applicationIdType": "credit",
+            "applicationSelectionFlags": "01",
+            "tags": {
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF03": "FC 60 24 A8 00",
+
+                // Terminal Action Code Denial
+                "DF04": "00 10 00 00 00",
+
+                // Terminal Action Code Online
+                "DF05": "FC 60 AC F8 00",
+                
+                // Default DDOL
+                "DF15": "9F 37 04",
+                
+                // Default TDOL
+                "DF18": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04"
+            }
+        },
+        {
+            // Union Pay International
+            "aids": [
+                "A000000333010102",
+                "A000000333010103"
+            ],
+            
+            "terminalApplicationVersion": "00 20",
+            "lowestSupportedIccApplicationVersion": "00 20",
+            "priorityIndex": "00",
+            "applicationIdType": "credit",
+            "applicationSelectionFlags": "01",
+            "tags": {
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF03": "FC 60 24 A8 00",
+
+                // Terminal Action Code Denial
+                "DF04": "00 10 00 00 00",
+
+                // Terminal Action Code Online
+                "DF05": "FC 60 AC F8 00",
+                
+                // Default DDOL
+                "DF15": "9F 37 04",
+                
+                // Default TDOL
+                "DF18": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04"
+            }
+        },
+        {
+            // TODO: This is ARC only and I added. This will need tested specifically.
+            // Interac
+            "aids": [
+                "A0000002771010"
+            ],
+            
+            "terminalApplicationVersion": "00 01",
+            "lowestSupportedIccApplicationVersion": "00 01",
+            "priorityIndex": "00",
+            "applicationIdType": "credit",
+            "applicationSelectionFlags": "01",
+            "tags": {
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF03": "FC 50 F8 A8 F0",
+
+                // Terminal Action Code Denial
+                "DF04": "10 10 58 00 00",
+
+                // Terminal Action Code Online
+                "DF05": "FC F8 E4 B8 70",
+                
+                // Default DDOL
+                "DF15": "9F 37 04",
+                
+                // Default TDOL
+                "DF18": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04"
+            }
+        }
+        // ARC also has Voyager and WEX.  Will we support fleet on Moby?  Is there really any point?
+    ],
+
+    "clessAids": [
+        {
+            // VISA
+            "aids": [
+                "A0000000031010",
+                "A0000000032010"
+            ],
+            
+            "terminalApplicationVersion": "00 96",
+            "lowestSupportedIccApplicationVersion": "00 8C",
+            "priorityIndex": "00",
+            "applicationIdType": "credit",
+            "applicationSelectionFlags": "01",
+            "cvmLimit": "00 00 05 DC",          //  15.00
+            "transactionLimit": "00 00 27 10",  // 100.00
+            "tags": {
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // VLP Reset Threshold
+                "9F6D": "00 01",
+
+                // Terminal Action Code Default
+                "DF03": "DC 40 00 A8 00",
+
+                // Terminal Action Code Denial
+                "DF04": "00 10 00 00 00",
+
+                // Terminal Action Code Online
+                "DF05": "DC 40 04 F8 00",
+                
+                // Default DDOL
+                "DF15": "9F 37 04",
+                
+                // Default TDOL
+                "DF18": "9F 02 06"
+            }
+        },
+        {
+            // Mastercard
+            "aids": [
+                "A0000000041010"
+            ],
+            
+            "terminalApplicationVersion": "00 02",
+            "lowestSupportedIccApplicationVersion": "00 02",
+            "priorityIndex": "00",
+            "applicationIdType": "credit",
+            "applicationSelectionFlags": "01",
+            "cvmLimit": "00 00 05 DC",          //      15.00
+            "transactionLimit": "05 F5 E0 FF",  // 999,999.99
+            "tags": {
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+                
+                // Terminal Risk Management Data
+                "9F1D": "2C 28 80 00 00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF03": "F4 50 84 80 0C",
+
+                // Terminal Action Code Denial
+                "DF04": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF05": "F4 50 84 80 0C",
+                
+                // Default DDOL
+                "DF15": "9F 37 04",
+                
+                // Default TDOL
+                "DF18": "9F 02 06 5F 2A 02 9A 03 9C 01 95 05 9F 37 04",
+
+                // Unknown other Moby config tags
+                "DF54": "9F 6A 04",
+                "DF8118": "20",
+                "DF8119": "08",
+                "DF811B": "A0",
+                "DF811E": "20",
+                "DF8124": "00 09 99 99 99 98",
+                "DF8125": "00 09 99 99 99 98",
+                "DF812C": "00",
+                "DF8243": "20 00 04 DF 72 01 02"
+            }
+        },
+        {
+            // AMEX
+            "aids": [
+                "A00000002501"
+            ],
+            
+            "terminalApplicationVersion": "00 01",
+            "lowestSupportedIccApplicationVersion": "00 01",
+            "priorityIndex": "00",
+            "applicationIdType": "credit",
+            "applicationSelectionFlags": "01",
+            "cvmLimit": "00 00 03 E8",          // 10.00
+            "transactionLimit": "00 00 05 DC",  // 15.00
+            "tags": {
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Form Factor Indicator
+                "9F6E": "D8 A0 40 00",
+
+                // Terminal Action Code Default
+                "DF03": "DC 50 84 00 00",
+
+                // Terminal Action Code Denial
+                "DF04": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF05": "C4 00 00 00 00",
+                
+                // Default DDOL
+                "DF15": "9F 37 04",
+                
+                // Default TDOL
+                "DF18": "9F 08 02",
+                
+                // Amex Expresspay Unpredictable Number Range
+                "DF44": "003C"
+            }
+        },
+        {
+            // Discover
+            "aids": [
+                "A0000001523010"
+            ],
+            
+            "terminalApplicationVersion": "00 01",
+            "lowestSupportedIccApplicationVersion": "00 01",
+            "priorityIndex": "00",
+            "applicationIdType": "credit",
+            "applicationSelectionFlags": "01",
+            "cvmLimit": "00 00 05 DC",          //  15.00
+            "transactionLimit": "00 00 27 10",  // 100.00
+            "tags": {
+                // Terminal Floor Limit
+                "9F1B": "00 00 00 00",
+
+                // Terminal Action Code Default
+                "DF03": "00 00 00 00 00",
+
+                // Terminal Action Code Denial
+                "DF04": "00 00 00 00 00",
+
+                // Terminal Action Code Online
+                "DF05": "00 00 00 00 00",
+                
+                // Default DDOL
+                "DF15": "9F 37 04",
+                
+                // Default TDOL
+                "DF18": "9F 02 06 95 05 5F 2A 02 9A 03 9C 01 9F 37 04"
+            }
+        }
+    ],
+    
+    "globalTags": {
+        // Terminal Currency Code
+        "5F2A": "08 40",
+
+        // Currency Exponent
+        "5F36": "02",
+
+        // Terminal Country Code
+        "9F1A": "08 40",
+
+        // Terminal Floor Limit
+        "9F1B": "00 00 00 00",
+
+        // Terminal Identifier
+        "9F1C": "31 32 33 34 31 32 33 34",
+
+        // Terminal Capabilities:
+        "9F33": "60 28 C8",
+
+        // Terminal Type
+        "9F35": "22",
+
+        // Additional Terminal Capabilities
+        "9F40": "60 00 00 A0 01",
+        
+        // VLP Reset Threshold
+        "9F6D": "00 01",
+
+        // Terminal Action Code Default
+        "DF03": "DC 40 00 A8 00",
+
+        // Terminal Action Code Denial
+        "DF04": "00 10 00 00 00",
+
+        // Terminal Action Code Online
+        "DF05": "DC 40 04 F8 00",
+                
+        // Threshold Value for Random Selection
+        "DF07": "00 00 00 00",
+
+        // Target Percentage for Random Selection
+        "DF08": "00",
+
+        // Maximum Percentage for Random Selection
+        "DF09": "00",
+
+        // Default DDOL
+        "DF15": "9F 37 04",
+        
+        // Authorization Response Code List
+        "DF16": "59 31 5A 31 59 32 5A 32 59 33 5A 33 30 30 30 35 30 31 30 34",
+        
+        // Default TDOL
+        "DF18": "9F 02 06",
+        
+        // Overall Contactless Transaction Limit
+        "DF65": "05 F5 E0 FF"
+    }
+}

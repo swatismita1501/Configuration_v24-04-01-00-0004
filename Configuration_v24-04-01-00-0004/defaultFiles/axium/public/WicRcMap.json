@@ -1,0 +1,12 @@
+{
+    "comments": [
+        "Customer eWIC return code translations are defined in this file.",
+        "Each line is 'oldValue = newValue'.  Both values are 4 digit hexadecimal values.",
+        "This file is optional.",
+        "Example:",
+        "Mapping WSPI_PRIVATE_WMP_MESSAGE_INVALID_GET_PAN (9CE2) to WSPI_BAD_PARAM (0004) requires the following line:",
+        "9CE2: 0004"
+    ],
+    "translations": {
+    }
+}

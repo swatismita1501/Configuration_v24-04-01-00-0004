@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+    package="com.ingenico.retail.arcspecialresource"
+    android:versionCode="1" 
+    android:versionName="1.0.0">
+
+    <application
+        android:hasCode="false" >
+        <receiver android:name="com.ingenico.retail.arcspecialresource.ResourceReceiver" >
+            <meta-data android:name="reboot" android:value="false" />
+            <meta-data android:name="function" android:value="255" />
+            <meta-data android:name="accessPermission" android:value="1" />
+            <intent-filter>
+                <action android:name="android.intent.action.SPECIAL_RESOURCE" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

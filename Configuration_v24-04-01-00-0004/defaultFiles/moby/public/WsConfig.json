@@ -1,0 +1,6 @@
+{
+  "event": {
+    // Time interval in milliseconds when event is sent and wait for event-ack before attempting another event request.
+    "retryInterval": 3000
+  }
+}

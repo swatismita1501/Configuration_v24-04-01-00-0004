@@ -1,0 +1,9 @@
+{
+    "commsType": "UsbCdc",
+    "commsConfig": {
+        "readBufferSizeBytes": 8192,
+        "connectionTimeoutMs": 30000,
+        "packetReadTimeoutMs": 10000,
+        "traceLevel": "ERROR"
+    }
+}

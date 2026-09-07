@@ -1,0 +1,519 @@
+{
+    "cashback": {
+        //@config(0002, 0004-0007)
+        //  Cash back softkey 1-4 amount (in cents)
+        "cashbackChoice1": "2000",
+        "cashbackChoice2": "4000",
+        "cashbackChoice3": "8000",
+        "cashbackChoice4": "10000",
+        //@config(0002, 0009)
+        //  Cash back amount increment (in cents)
+        "incrementValue": "1000",
+        //@config(0002, 0001)
+        //  Max cash back value (in cents), overall value for all card types.
+        //  or amount in card configuration table
+        "maxCashback": "999999"
+    },
+    "cless": {
+        //@config(0008, 0008)
+        //  Duration to display "bad read" error
+        //  0 = disabled
+        //  1 or greater = time in 1/10ths seconds. Limit is 150 (15 seconds).
+        "badReadTimeoutMs": "10",
+        //@config(0008, 0003)
+        //  Beep when Contactless card read
+        "beep": "true",
+        //@config(0008, 0010)
+        //  Delay time in milliseconds for a Contactless event. Used to prevent a
+        //  Contactless event from occurring when using a MSR swipe with a Contactless card.
+        //  0 = No delay
+        //  1ms to 2000ms = Delay
+        "delay": "1000",
+        "emv": {
+            //  Allow external AID selection by customer
+            "allowExternalAidSelection": "false",
+            //@config(0008, 0024)
+            //  Enable/Disable optimized quick chip
+            "optimizedQuickChipEnabled": "false",
+            //@config(0008, 0013)
+            //  Status Update Steps
+            //    c - Contactless online PIN entry
+            //    r - Online authorization
+            //    u - Transaction completed
+            "statusUpdateSteps": "",
+            //@config(0008, 0012)
+            //  Suspend Steps
+            //    c - Contactless online PIN entry
+            //    r - Online authorization
+            //    u - Transaction completed
+            "suspendSteps": "",
+            //  Enable/Disable VpTT requirements
+            "vptt": "false"
+        },
+        //@config(0008, 0001)
+        //  Contactless supported modes:
+        //    0 = disabled
+        //    9 = EMV first, PPSE second
+        "mode": "9",
+        //@config(0008, 0025)
+        //  Online Authorization Prompt Id
+        "onlineAuthorizationPromptId": "309",
+        "result": {
+            //@config(0007, 0023)
+            //  After display Approved/Disapproved message timeout
+            //    0 = Reset
+            //    1 = Go to advertising (ads must be enabled)
+            //    2 = Wait for reset (displayApprovedDisapproved should be set to 1)
+            "actionAfterDisplay": "1",
+            //@config(0007, 0022)
+            //  Display Approved/Disapproved message timer
+            //    0 = Do not display
+            //    1 = Display until a reset is received
+            //    2 or greater = Time in 1/10th of second (50 = 5 seconds)
+            "displayMode": "50"
+        },
+        //  Supported Payment Types
+        //    0 = None
+        //    1 = Emv
+        //    2 = Mifare
+        //    3 = EmvAndMifare
+        "supportedPaymentTypes": "3",
+        "transactionTypeOverride": {
+            //@config(0008, 0021)
+            //  Credit contactless void return transaction type
+            "creditVoidRefund": "00",
+            //@config(0008, 0020)
+            //  Credit contactless void sale transaction type
+            "creditVoidSale": "00",
+            //@config(0008, 0019)
+            //  Debit  contactless void return transaction type
+            "debitVoidRefund": "02",
+            //@config(0008, 0018)
+            //  Debit  contactless void sale transaction type
+            "debitVoidSale": "22"
+        },
+        // Image shows on Read Cards form when terminal has NFC antenna under the screen.
+        "readCardsImageName": "contactless_card_symbol",
+        // Option to decline a transaction when the cless floor limit is set to 0 and the card decides to
+        // approve offline. When "true" this setting prevents a fraud case for the Visa kernel.
+        //   true = Decline the transaction despite the card decision
+        //   false = Accept the card decision and approve the transaction
+        "declineIfZeroFloorLimitAndTc": "true"
+    },
+    "emv": {
+        "aids": {
+            //@config(0021, 0001 - 0032)
+            //  AID
+            //         ||||||||||||||||
+            //         |||||||||||||||| Tag 8A value for bad PIN (in hex)
+            //         |||||||||||||||| ||  Note: DEPRECATED/UNUSED; use D1011 = 55 if T8A = non-standard value
+            //         |||||||||||||||| ||
+            //         |||||||||||||||| || Allow PIN bypass
+            //         |||||||||||||||| || |                 0 = PIN bypass not allowed
+            //         |||||||||||||||| || |                 1 = Enter  Key PIN bypass allowed
+            //         |||||||||||||||| || |                 2 = Cancel Key PIN bypass allowed
+            //         |||||||||||||||| || | AID Brand
+            //         |||||||||||||||| || | ||              1 = Mastercard
+            //         |||||||||||||||| || | ||              2 = Visa
+            //         |||||||||||||||| || | ||              3 = Interac
+            //         |||||||||||||||| || | ||              4 = Amex
+            //         |||||||||||||||| || | ||              5 = Discover
+            //         |||||||||||||||| || | ||              6 = DNA (US Debit)
+            //         |||||||||||||||| || | ||              7 = UnionPay
+            //         |||||||||||||||| || | ||              8 = JCB
+            //         |||||||||||||||| || | ||
+            //         |||||||||||||||| || | || US Common debit AID
+            //         |||||||||||||||| || | || |            0 =       Non Debit or
+            //         |||||||||||||||| || | || |                   Global Debit AID
+            //         |||||||||||||||| || | || |            1 = US Common Debit AID
+            //         |||||||||||||||| || | || |
+            //         |||||||||||||||| || | || | Force cashback
+            //         |||||||||||||||| || | || | |          0 = prompt cashback based on AUC cashback bits
+            //         |||||||||||||||| || | || | |          1 = force  cashback;  ignore AUC cashback bits
+            //         |||||||||||||||| || | || | |
+            //         |||||||||||||||| || | || | | PAN consistency check
+            //         |||||||||||||||| || | || | | |        Test if primary account number in T57 (Track 2 Equivalent
+            //         |||||||||||||||| || | || | | |        Data) is consistent with T5A (Primary Account Number)
+            //         |||||||||||||||| || | || | | |
+            //         |||||||||||||||| || | || | | |        Note:
+            //         |||||||||||||||| || | || | | |        This check currently applies to contactless ONLY.
+            //         |||||||||||||||| || | || | | |
+            //         |||||||||||||||| || | || | | |        0 = disable check for consistency
+            //         |||||||||||||||| || | || | | |        1 = enable  check for consistency
+            //         |||||||||||||||| || | || | | |
+            //         |||||||||||||||| || | || | | | Allow CLESS PIN bypass
+            //         |||||||||||||||| || | || | | | |      0 = PIN bypass not allowed
+            //         |||||||||||||||| || | || | | | |      1 = Enter  Key PIN bypass allowed
+            //         |||||||||||||||| || | || | | | |      2 = Cancel Key PIN bypass allowed
+            //         |||||||||||||||| || | || | | | |
+            //         |||||||||||||||| || | || | | | | PIN bypass Cashback
+            //         |||||||||||||||| || | || | | | | |    0 = do NOT allow cashback for PIN bypass
+            //         |||||||||||||||| || | || | | | | |    1 =        allow cashback for PIN bypass
+            //         |||||||||||||||| || | || | | | | |
+            //         |||||||||||||||| || | || | | | | | Offline  PIN  Cashback
+            //         |||||||||||||||| || | || | | | | | |    0 = do NOT allow cashback for offline PIN CVM
+            //         |||||||||||||||| || | || | | | | | |    1 =        allow cashback for offline PIN CVM
+            //         |||||||||||||||| || | || | | | | | |
+            //         |||||||||||||||| || | || | | | | | | Online PIN  Cashback
+            //         |||||||||||||||| || | || | | | | | | |    0 = do NOT allow cashback for online  PIN CVM
+            //         |||||||||||||||| || | || | | | | | | |    1 =        allow cashback for online  PIN CVM
+            //         |||||||||||||||| || | || | | | | | | |
+            //         |||||||||||||||| || | || | | | | | | | Signature Cashback
+            //         |||||||||||||||| || | || | | | | | | | |    0 = do NOT allow cashback for signature CVM
+            //         |||||||||||||||| || | || | | | | | | | |    1 =        allow cashback for signature CVM
+            //         |||||||||||||||| || | || | | | | | | | |    (Note: Discover cards support signature cashback.)
+            //         |||||||||||||||| || | || | | | | | | | |
+            //         |||||||||||||||| || | || | | | | | | | | No CVM  Cashback
+            //         |||||||||||||||| || | || | | | | | | | | |    0 = do NOT allow cashback for no CVM
+            //         |||||||||||||||| || | || | | | | | | | | |    1 =        allow cashback for no CVM
+            //         |||||||||||||||| || | || | | | | | | | | |    (Note: no known cards support no CVM cashback.)
+            //         |||||||||||||||| || | || | | | | | | | | |
+            //         |||||||||||||||| || | || | | | | | | | | | CLESS EMV Refund, Void, Void-Return Option
+            //         |||||||||||||||| || | || | | | | | | | | | |    This indicates how refund, void,
+            //         |||||||||||||||| || | || | | | | | | | | | |    void-return is processed.
+            //         |||||||||||||||| || | || | | | | | | | | | |
+            //         |||||||||||||||| || | || | | | | | | | | | |    0 - Partial EMV transaction.
+            //         |||||||||||||||| || | || | | | | | | | | | |    1 - Full    EMV transaction.
+            //         |||||||||||||||| || | || | | | | | | | | | |
+            //         |||||||||||||||| || | || | | | | | | | | | | Optimized QuickChip
+            //         |||||||||||||||| || | || | | | | | | | | | | |    0 = Do NOT allow Optimized QuickChip
+            //         |||||||||||||||| || | || | | | | | | | | | | |    1 =        allow Optimized QuickChip
+            //         |||||||||||||||| || | || | | | | | | | | | | |    (Note: Not all brands support QuickChip.)
+            //         |||||||||||||||| || | || | | | | | | | | | | |
+            //         |||||||||||||||| || | || | | | | | | | | | | | Online PIN Key Index
+            //         |||||||||||||||| || | || | | | | | | | | | | | |    *   - Use PIN Index from 0006_0008
+            //         |||||||||||||||| || | || | | | | | | | | | | | |    0-5 - Use specific key index
+            //         |||||||||||||||| || | || | | | | | | | | | | | |
+            //         |||||||||||||||| || | || | | | | | | | | | | | | Contact EMV Refund, Void, Void-Return Option
+            //         |||||||||||||||| || | || | | | | | | | | | | | | |    This indicates how refund, void,
+            //         |||||||||||||||| || | || | | | | | | | | | | | | |    void-return is processed.
+            //         |||||||||||||||| || | || | | | | | | | | | | | | |
+            //         |||||||||||||||| || | || | | | | | | | | | | | | |    0 - Partial EMV transaction.
+            //         |||||||||||||||| || | || | | | | | | | | | | | | |    1 - Full    EMV transaction.
+            //         |||||||||||||||| || | || | | | | | | | | | | | | |
+            //         |||||||||||||||| || | || | | | | | | | | | | | | | PIN Prompt (prompt index from string.xml - must be a prompt valid for PIN)
+            //         |||||||||||||||| || | || | | | | | | | | | | | | | 0 = default PIN message
+            //         |||||||||||||||| || | || | | | | | | | | | | | | | otherwise one of 1, 3, 14-19, 21-37, 50-52
+            //         |||||||||||||||| || | || | | | | | | | | | | | | | ||
+            "aid.01": "A0000000031010   55 0 02 0 0 1 0 0 0 1 0 0 0 1 * 0  0",
+            "aid.02": "A0000000041010   55 0 01 0 0 0 0 0 0 0 0 0 0 1 * 0  0",
+            "aid.03": "A0000002771010   55 0 03 0 1 0 0 0 1 0 0 0 1 0 * 1  0",
+            "aid.04": "A0000000032010   55 0 02 0 0 0 0 0 0 0 0 0 0 1 * 0  0",
+            "aid.05": "A00000002501     55 0 04 0 0 0 0 0 0 0 0 0 0 1 * 0  0",
+            "aid.06": "A0000001523010   55 0 05 0 0 0 0 0 1 1 1 0 0 1 * 0  0",
+            "aid.07": "A0000000980840   55 0 02 1 0 0 0 0 0 1 0 0 0 1 * 0  0",
+            "aid.08": "A0000000042203   55 0 01 1 0 0 0 0 1 1 0 0 0 1 * 0  0",
+            "aid.09": "A0000001524010   55 0 05 1 0 0 0 0 1 1 1 0 0 1 * 0  0",
+            "aid.10": "A0000006200620   55 0 06 1 0 0 0 0 0 1 0 0 0 0 * 0  0",
+            "aid.11": "A0000003330101   55 1 07 0 0 0 0 0 0 0 0 0 0 0 * 0  0",
+            "aid.12": "A0000000651010   55 0 08 0 0 0 0 0 0 0 0 0 0 0 * 0  0",
+            "aid.13": "A0000000043060   55 0 01 0 0 0 0 0 0 0 0 0 1 1 * 1  0",
+            "aid.14": "A0000000033010   55 0 02 0 0 0 0 0 0 0 0 0 1 0 * 1  0",
+            "aid.15": "A0000000038010   55 0 02 0 0 0 0 0 0 0 0 0 0 0 * 0  0",
+            "aid.16": "A0000000049999   55 0 01 0 0 0 0 0 0 0 0 0 0 0 * 0  0",
+            "aid.17": "A0000007681010   55 0 01 0 0 0 0 0 0 0 0 0 0 0 * 0  0",
+            "aid.18": "",
+            "aid.19": "",
+            "aid.20": "",
+            "aid.21": "",
+            "aid.22": "",
+            "aid.23": "",
+            "aid.24": "",
+            "aid.25": "",
+            "aid.26": "",
+            "aid.27": "",
+            "aid.28": "",
+            "aid.29": "",
+            "aid.30": "",
+            "aid.31": "",
+            "aid.32": ""
+        },
+        //@config(0019, 0009)
+        //  Allow CVM modification by POS.
+        "allowCvmModification": "false",
+        //@config(0019, 0020)
+        //  Allow external AID selection by customer
+        "allowExternalAidSelection": "false",
+        //@config(0019, 0007)
+        //  Enable Interac application selection
+        // false = Disabled
+        // true  = Enabled
+        "allowInterac": "false",
+        //@config(0019, 0008)
+        //  Enable Domestic VISA Debit application selection
+        //  false = Disabled
+        //  true  = Enabled
+        "allowVisaDebit": "true",
+        //@config(0019, 0003)
+        //  Application Selection Method
+        //  0  if pin pad prompts cardholder to select application via menu
+        //     with    subsequent confirmation.
+        //  2  if pin pad prompts cardholder to select application via menu,
+        //     without subsequent confirmation.
+        //  1  if pin pad prompts cardholder to select application via confirmation
+        //     starting with highest-priority application(s).
+        //  3  if pin pad prompts cardholder to select application via confirmation
+        //     starting with highest-priority application(s) but auto-selects
+        //     lowest-priority application without subsequent cardholder
+        //     confirmation if all other applications declined.
+        "applicationSelectionMethod": "2",
+        //@config(0019, 0013)
+        //  Timeout for authorization response
+        //    0 = disabled
+        //    1 or greater = time in 1/10ths seconds
+        "authorizationResponseTimeoutTenths": "700",
+        //@config(0019, 0002)
+        // Configures how the terminal selects the language for the transaction when the
+        // terminal supports more then one language the card requests.
+        //   true - the highest priority language is chosen automatically.
+        //   false - a menu is shown asking the user to chose one of the matched languages.
+        "autoSelectLanguage": "true",
+        // Configures how the terminal selects the language for the transaction when none
+        // of the languages the card requests are supported by the terminal.
+        //   true - the terminal's configured default language is chosen automatically.
+        //   false - a menu is shown asking the user to chose one of the terminal languages.
+        "autoSelectLanguageFallback": "true",
+        "brands": {
+            //@config(0022, 0001 - 0010)
+            //  Brands
+            //     01 = Mastercard
+            //     02 = Visa
+            //     03 = Interac
+            //     04 = Amex
+            //     05 = Discover
+            //     06 = DNA (US Debit)
+            //     07 = UnionPay
+            //     08 = JCB
+            //     ||  Values:
+            //     ||    0 = do NOT prefer US Common or Global Debit AID
+            //     ||    1 = prefer US Common Debit AID
+            //     ||    2 = prefer    Global Debit AID
+            //     ||    |
+            "brand.01": "1",
+            "brand.02": "1",
+            "brand.03": "1",
+            "brand.04": "1",
+            "brand.05": "1",
+            "brand.06": "1",
+            "brand.07": "1",
+            "brand.08": "1",
+            "brand.09": "",
+            "brand.10": ""
+        },
+        //@config(0019, 0026)
+        //  Modification Mode
+        //    0 = Before Pan Reporting
+        //    1 = After Pan Reporting
+        //    2 = None
+        "cvmModificationMode": "0",
+        //@config(0019, 0025)
+        //  Display Transaction Canceled Message
+        //  Card Removed/Transaction cancelled message display
+        "displayTransactionCanceledMessage": "true",
+        // File name for EMV Config
+        "emvConfig": "EmvConfig.json",
+        //@config(0019, 0001)
+        //  Enabled
+        //  Register support EMV
+        "enabled": "true",
+        "quickChip": {
+            //@config(0019, 0021)
+            //  Enable/Disable optimized quick chip
+            "enabled": "false",
+            //@config(0019, 0023)
+            //  Optimized QuickChip status update steps
+            "statusUpdateSteps": "",
+            //@config(0019, 0022)
+            //  Optimized QuickChip suspend steps
+            "suspendSteps": ""
+        },
+        "transactionTypeOverride": {
+            //@config(0019, 0019)
+            //  Credit contact void return transaction type
+            "creditVoidRefund": "00",
+            //@config(0019, 0018)
+            //  Credit contact void return transaction type
+            "creditVoidSale": "00",
+            //@config(0019, 0017)
+            //  Debit  contact void return transaction type
+            "debitVoidRefund": "02",
+            //@config(0019, 0016)
+            //  Debit  contact void sale   transaction type
+            "debitVoidSale": "22"
+        }
+    },
+    "forms": {
+        //@config(0030, 0001 - 0063)
+        //  Form indexes and form names accosiated with them.
+        //  Indexes can be used in 24.x requests instead of form names
+        "01": "",
+        "02": "",
+        "03": "",
+        "04": "",
+        "05": "",
+        "06": "",
+        "07": "",
+        "08": "",
+        "09": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "13": "",
+        "14": "",
+        "15": "",
+        "16": "",
+        "17": "",
+        "18": "",
+        "19": "",
+        "20": "",
+        "21": "",
+        "22": "",
+        "23": "",
+        "24": "",
+        "25": "",
+        "26": "",
+        "27": "",
+        "28": "",
+        "29": "",
+        "30": "",
+        "31": "",
+        "32": "",
+        "33": "",
+        "34": "",
+        "35": "",
+        "36": "",
+        "37": "",
+        "38": "",
+        "39": "",
+        "40": "",
+        "41": "",
+        "42": "",
+        "43": "",
+        "44": "",
+        "45": "",
+        "46": "",
+        "47": "",
+        "48": "",
+        "49": "",
+        "50": "",
+        "51": "",
+        "52": "",
+        "53": "",
+        "54": "",
+        "55": "",
+        "56": "",
+        "57": "",
+        "58": "",
+        "59": "",
+        "60": "",
+        "61": "",
+        "62": "",
+        "63": ""
+    },
+    "mac": {
+        // Indicates if the full MAC value should be returned in the response.
+        // If true, the full MAC value will  be append at the end of the response after an [FS] separator.
+        "returnFullMacValue": "false"
+    },
+    "mpoc": {
+        // Indicates whether ARC automatically handles initializing the Phos SDK and authenticating with
+        // the Phos backend. If false, the customer applicaiton must use either the ArcLib initializePlatform
+        // and authenticatePlatform functions, or EFT 42 initialization and authentication methods.
+        "autoInitializeConfigure": "true",
+        // Data used when ARC automatically configures the MPoC platform.
+        // This is not used for ArcLib.configurePlatform or for EFT 42.6.
+        "configureData": "{\"issuer\":\"phos\",\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJleHAiOjE4Nzk3NTA5NzYsImxpY2Vuc2UiOiIxMjMiLCJtZXJjaGFudE5hbWUiOiJNZXJjaGFudCBOYW1lIiwibWlkIjoibWlkMTIzIiwidGlkIjoidGlkMTIzIiwia2VybmVsQ29uZmlnIjoiMjViNTFlZWY5NGE1ZWMyNDgwZDBmNWZkZWQ1OGE4Y2UiLCJjb3VudHJ5Q29kZSI6IkJHIn0._3-VAmjJrrmMLYYwSApvmK6O2xXbtorZ3wZSEXTCsIk6NM9rB1mlvbN6HuzCteXd4Y8NpFTouIdHOdtdyd7Izw\"}"
+    },
+    "msr": {
+        //@config(0003, 0009)
+        //  Sound a "Beep" when a card is read
+        "beep": "true"
+    },
+    "service": {
+        // Determines if ARC Service starts at terminal boot or not.
+        "autoStart": "true",
+        // Determines how long ARC Service boot activity splash screen shows:
+        //    -1      = forever
+        //     0      = never
+        //     1 - 60 = number of seconds to show
+        "splashScreenTimeout": "0"
+    },
+    "terminal": {
+        //@config(0007, 0014)
+        //  Beep volume (0 - 100 percent)
+        "beepVolume": "25",
+        "chime": {
+            // Enable or disable using sound files to replace the default buzzer good/bad tones.
+            "chimeEnabled": "false",
+            // The name of the sound to replace the buzzer tone used for good or success cases.
+            // Default is "Pixie Dust".
+            "successChime": "Pixie Dust",
+            // The name of the sound to replace the buzzer tone used for bad or failure cases.
+            // Default is "Talitha".
+            "failureChime": "Talitha"
+        },
+        //@config(0007, 0044)
+        // Default Terminal Country as ISO 3166-1 two letter code
+        "defaultCountry": "US",
+        //@config(0007, 0002)
+        // Default Terminal Language by Java Locale string
+        "defaultLanguage": "en-US",
+        // Locale for formatting by Java Locale string
+        "formattingLocale": "en-US",
+        //@config(0007, 0052)
+        //  Media volume (0 - 255)
+        "mediaVolume": "255",
+        "screen": {
+            // Initial orientation for ARC screens.
+            // Valid values:
+            //    default   - Use default device orientation.
+            //    portrait  - Use portrait orientation.
+            //    landscape - Use landscape orienation.
+            //    rotatable - Orientation can be changed between portrait and landscape if the device allows it.
+            "orientationMode": "default"
+        },
+        "watchdog": {
+            // The action to take when the watchdog determines the terminal is hung.
+            //    reboot - reboots terminal.
+            //    log - logs the condition for support.
+            "action": "log",
+            // Number of minutes terminal must appear hung before the watchdog action is taken.
+            //   Range: (3-10)
+            "timeoutMinutes": "3"
+        }
+    },
+    "userVars": {
+        //@config(0014, 0001 - 0025)
+        //  User-defined custom variables
+        "var.01": "",
+        "var.02": "",
+        "var.03": "",
+        "var.04": "",
+        "var.05": "",
+        "var.06": "",
+        "var.07": "",
+        "var.08": "",
+        "var.09": "",
+        "var.10": "",
+        "var.11": "",
+        "var.12": "",
+        "var.13": "",
+        "var.14": "",
+        "var.15": "",
+        "var.16": "",
+        "var.17": "",
+        "var.18": "",
+        "var.19": "",
+        "var.20": "",
+        "var.21": "",
+        "var.22": "",
+        "var.23": "",
+        "var.24": "",
+        "var.25": ""
+    },
+    "wic": {
+        //@config(0020, 0001)
+        // Enable WIC
+        "enabled": "false"
+    }
+}

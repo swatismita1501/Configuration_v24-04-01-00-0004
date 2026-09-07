@@ -1,0 +1,307 @@
+{
+    "general": {
+        //@config(0091, 0045)
+        // Password to access configuration applications.
+        // Can be empty or a sequence of digits up to 12 digits long.
+        // For touch only terminals, the sequences are hidden button IDs on the offline screen
+        //    where 1 = top left, 2 = top right, 3 = bottom left and 4 = bottom right.
+        // For terminals with a physical keypad, you can use any digits but digits above 4 must
+        //    be entered on the keypad.
+        "adminPassword": "",
+
+        // The password to set as the Android Settings menu if "setAndroidSettingsPassword" is true.
+        //
+        // An empty string means that the password requirement to access Android Settings is disabled.
+        //
+        // Legal passwords must be between 4 and 17 characters in length.
+        // If the length of the value is invalid, the password will not be changed.
+        "androidSettingsPassword": "",
+
+        //@config(0091, 0059)
+        // Enable or disabled creating a track 2 with PAN, expiration date, and service code for
+        // cards where only track 1 is available.
+        "createTrack2FromTrack1": "false",
+        
+        "encrypt": {
+            //@config(0091, 0028)
+            // Enable Driver's License encryption.
+            // true  = Encrypt driver's licenses.
+            // false = Do no encrypt driver's licenses.
+            "driversLicense": "true",
+
+            //@config(0091, 0029)
+            // Enable Non-Standard card encryption.
+            // true  = Encrypt non-standard cards.
+            // false = Do no encrypt non-standard cards.
+            "nonStandard": "true"
+        },
+        
+        //@config(0091, 0001)
+        // Encryption type for card track data:
+        //     0 = No encryption
+        //     2 = On-Guard FPE
+		//     5 = Voltage TEP2
+        //     6 = Voltage TEP4
+        //     9 = RSA-OAEP
+        //    19 = On-Guard SDE
+        //    30 = ChapterX
+        //    31 = Voltage TEP6
+        //    32 = Voltage TEP7
+        "encryptionType": "0",
+        
+        //@config(0091, 0066)
+        // Indicates if a missing track 2 is considered an error for encrypted MSR transactions.      
+        "errorIfTrack2IsMissing": "false",
+        
+        // Controls masking of card data when encryption is enabled.
+        "masking": {
+            //@config(0091, 0003)
+            // Number of leading  digits of PAN delivered in the clear.
+            // Legal values are 0-8.
+            "clearLeading": "6",
+            
+            //@config(0091, 0004)
+            // Number of trailing  digits of PAN delivered in the clear.
+            // Legal values are 0-4.
+            "clearTrailing": "4",
+
+            //@config(0091, 0057)
+            // Indicates if track 1 and track 2 discretionary data is masked.
+            "maskDiscretionaryData": "true",
+            
+            //@config(0091, 0039)
+            // Indicates if PAN, expiration date and CVV should be masked for manual entry.
+            "maskManualEntry": "false"
+        },
+        
+        //@config(0091, 0200)
+        //@deprecated This parameter is no longer supported.
+        // Indicates if the PIN on glass keypad should be randomized or not.
+        // If false, the digits are always in the standard 1-2-3 / 4-5-6 / 7-8-9 / 0 layout.
+        "randomizePinKeypad": "false",
+        
+        //@config(0091, 0031)
+        // Indicates if the ARC EmvConfig.json file is located is loaded from secure storage.
+        // If false, the file is loaded from public storage.
+        // if true, the file is loaded from private storage and must be updated via a signed APK.
+        "secureEmvConfig": "false",
+
+        //@config(0091, 0201)
+        // Indicates if the ARC EmvCapk.json file is located is loaded from secure storage.
+        // If false, the file is loaded from public storage.
+        // if true, the file is loaded from private storage and must be updated via a signed APK.
+        "secureCapkConfig": "false",
+
+        // Determines if Android Settings password must be changed or not.
+        // "false" means to not update the current Android Settings password.
+        // "true" means to update the current Android Settings password with the value of "androidSettingsPassword".
+        "setAndroidSettingsPassword": "false"
+    },
+    
+    "onGuardFpe": {
+        //@config(0091, 0002) when "general/encryptionType" is "2"
+        // Encryption key index for encrypting card track data.
+        // Used only if "general/encryptionType" is 2.
+        "keyIndex": "5"
+    },
+    
+    "onGuardSde": {
+        //@config(0091, 0050)
+        "blockMode": "0",
+        
+        //@config(0091, 0062)
+        "clessMsdJobType": "0",
+
+        // Allows the user to define whether to use getStandardBlock() or getEMVTagsBlock() to get EMV encrypted data.
+        //    When true ARC uses the getStandardBlock() API to get cipher text from SPS
+        //    When false (aka the default value) then ARC uses the getEMVTagsBlock() API.
+        "encryptEmvAsSensitiveData": "false",
+
+        //@config(0091, 0049)
+        // Indicates the type of encryption to be used by the On-Guard SRED module:
+        //   1 = TDES16 (Triple Data Encryption Standard with a 112 bits key length)
+        //   2 = AES128 (Advanced Encryption Standard with a 128 bits key length)
+        //   3 = AES192 (Advanced Encryption Standard with a 192 bits key length)
+        //   4 = AES256 (Advanced Encryption Standard with a 256 bits key length)
+        "encryptionAlgorithm": "1",
+        
+        //@config(0091, 0048)
+        // Indicate the type of key management to be used by the On-Guard SRED module:
+        //   0 = DUKPT 2009 standard, limited to TDES 112 bits for encryption
+        //   1 = DUKPT 2017 standard, with a compatible length for Key Serial Number (10 bytes)
+        //   2 = DUKPT 2017 standard, with a length for Key Serial Number (12 bytes)
+        "encryptionModel": "0",
+
+        // Indicates the encryption format
+        // 0 = Arc
+        // 1 = Cybersource
+        "format": "0",
+
+        //@config(0091, 0056) Only applies when "encryptEmvAsSensitiveData" is false.
+        //
+        // Valid jobs are:
+        //    0 = Track 1 Equivalent Data (56)
+        //    1 = Track 2 Equivalent Data (57)
+        //    2 = PAN (5A)
+        //    3 = Cardholder Name (5F20)
+        //    4 = Expiration Date (5F24)
+        //    5 = Service Code (5F30)
+        //    6 = Application Discretionary Data (9F05)
+        //    7 = Cardholder Name Extended (9F0B)
+        //    8 = Track 1 Discretionary Data (9F1F)
+        //    9 = Track 2 Discretionary Data (9F20)
+        //   10 = CLESS Track 2 (9F6B)
+        //   11 = AMEX Pseudo Track 1 (DF45)
+        //   12 = AMEX Pseudo Track 2 (DF46)
+        //
+        // Only tags present on the card will be encrypted.
+        "jobsChip": "0,1,2",
+
+        // ICC data to be encrypted on EMV transactions when "encryptEmvAsSensitiveData" is true.
+        //
+        // Valid jobs are:
+        //    1 = Track 1 equivalent Data
+        //    3 = Track 2 equivalent Data
+        //    5 = PAN
+        //    9 = Expiration Date
+        //   13 = Cardholder Name
+        //
+        // Only data present on the card will be encrypted.
+        "jobsEmv": "3,5",
+        
+        //@config(0091, 0053)
+        //
+        // Valid jobs are:
+        //    8 = PAN
+        //   12 = Expiration Date
+        //   16 = CVV2
+        "jobsManual": "8,12,16",
+        
+        //@config(0091, 0055)
+        // Not supported by ARC.
+        "jobsMsd": "0,1,2,3,10,11",
+        
+        //@config(0091, 0054)
+        //
+        // Valid jobs are:
+        //    0 = Track 1 with sentinels and LRC
+        //    2 = Track 2 with sentinels and LRC
+        //    4 = Track 3 with sentinels and LRC
+        //    6 = Track 1 PAN
+        //    7 = Track 2 PAN
+        //   10 = Track 1 expiration date
+        //   11 = Track 2 expiration date
+        //   14 = Track 1 cardholder name
+        //   18 = Track 1 without sentinels or LRC
+        //   19 = Track 2 without sentinels or LRC
+        //   20 = Track 3 without sentinels or LRC
+        //
+        // Only data present on the card will be encrypted.
+        "jobsMsr": "18,19",
+        
+        //@config(0091, 0047)
+        // Indicates when the DUKPT key is incremented during the encryption process:
+        //   0 = Key is not incremented. Not recommended.
+        //   1 = Key is incremented before the encryption is performed.
+        //   2 = Key is incremented after the encryption is performed.
+        "keyAdvanceMode": "1",
+        
+        //@config(0091, 0002) when "general/encryptionType" is "19"
+        // Encryption key index for encrypting card track data.
+        // Used only if "general/encryptionType" is 19.
+        "keyIndex": "5",
+        
+        //@config(0091, 0060)
+        // DEPRECATED - replaced by "manualExpDateFormat" in version 22.01.00.01.
+        "manualSwapExpDate": "false",
+
+        // Indicates the expiry date reporting and encryption format for manual entry:
+        //  YYMM = the encrypted expiry date format is YYMM.
+        //  MMYY = the encrypted expiry date format is MMYY.
+        "manualExpDateFormat": "YYMM",
+
+        // Indiate the encrypted track format
+        // 0 = Ascii
+        // 1 = Hex
+        "messageFormat": "0",
+
+        //@config(0091, 0051)
+        "paddingMode": "4",
+        
+        //@config(0091, 0052)
+        "separator": "7C"
+    },
+	
+	"ipcComm": {
+		"whitelist": ""
+	},
+
+    "voltage": {
+        //@config(0091, 0005)
+        // Maximum number of transaction with the same key
+        // Mutually exclusive with KeyUpdatePeriod which has precedence.
+        //  0 = Don't change keys based on transaction count
+        //  1 - 65000 = Change key after this many transactions with the same key
+        "maxTransPerKey": "0",
+
+        //@config(0091, 0006)
+        // Periodically change keys (Requires setting the device's date and time)
+        // This setting has precedence over MaxTransPerKey and PreserveKey.
+        //  0 = Disabled
+        //  1-365 = Change every xxx days. The first change date of the year is
+        //            calculated using the last two bytes of the terminal's MAC
+        //            address modulo xxx. The key is then changed every xxx days
+        //            through the rest of the year.
+        "keyUpdatePeriod": "0",
+
+        //@config(0091, 0007)
+        // Preserve keys during power failure
+        // Defaults to true if KeyUpdatePeriod is non-zero.
+        //  false = A new key is generated at power up
+        //  true  = Keys are saved when generated and restored at power up
+        "preserveKey": "false",
+
+        //@config(0091, 0009)
+        // Identity String. Provided by authorizer.
+        "identityString": "id@sample.com",
+
+        //@config(0091, 0010)
+        // Identity Date in format "mmddyyyy".
+        // If set to "*" the devices current date will be used.
+        // Be sure to set the date and time via the Set Variable (28.) message.
+        "identityDate": "*",
+
+        //@config(0091, 0011)
+        // Parameter data encoded in base64
+        "parmsBase64": "MDMwQzAwNTI5RTc0NEIxMzIwMDE4MEE0N0JEQURCODg0REQ1ODEyMDA2OUU1N0EwQzY4QzU2QTBBNUZFQTExNzcxRkY4QTQwRDk3NTAxRTkwODBDMTU3NERFNTAxN0FDM0I2QzNFRTlFNTBBRUU1M0RGQkFDNzhENUU2NTkwRDI1MkM5QTcyMUE2OUI3MjBCNEY4MjI4QjBGRUU3NDQ5OTI1Q0E4QzhEQTU5QTU5RDI0QUVCOTY4RjI5Nzk4RjRGRjc5ODA5Q0FBQjE1OTM0RDQ3MzRENTA1OEM4REI3RDJDMTYyNEQxRkYwM0ExMTNBMjBDQ0VDRjkzMjE4QTMyOTA0QkIzNkI2QjkzNzg1RDEwMDIzNkQwMDk1MkEyQjIxNDBGN0QwMTY0OTI0Mjk2NEUzQ0Q3RUVEOEEyNkNDOTQ4MTI2NzM4ODZEQTE4MDQ0Q0VCRjQ0OTVDMTIyRjc0MDU4NkQ5M0E3MEE2RUM1QzE1Qjk1OUE0QkUwQUI3RUJERUExOTNGNzhDOTQ1NjcxREQ5M0RFOTY5NUQ5RTk3MDIxRTk2NTBENzhENjU0QzE1ODhFMjlGNEVCNzg0ODRBNzREMzE5MzFEQzI5QjdEODA1RUUzODFDQTI4NjEwOThERUI3RUEyMEIyM0VBRTYzRjEzQjc1MTQxN0EzQkU0NjgyQjNDMTRBQUQ4MkY5NzE1QTMzN0I1NzQzRjI1QTZEOUVGQzdENzc1MDg3NjRBRENBQjE1M0E1QTFCRkUxMzVDOUZGQkJEQzJFQzMyRUNCRTQ5RUJGQzVGQUI1NzQyNkNEODdBMzJDNURCRDM5NjNFMzU5MDY0QzkyNzkyNDY4NEU1RDc2MUE5Q0U4QkM2NzBENTA3RDQ5NkM5RTJCNUFDOEE1Q0IwMTU3M0ZFQzIzNENENzgyQkI2QTgzQUVGN0RDMEVDQ0JCOTMyMTg5MkM0MkU3NDdGODk3OERGMTk1RkMwQjUwOTk0QURBNzJGNTQ3M0YyRTQ3OEZBMEZEMUI1NzJCQzE2MzdGRTRGMEYwOTBGOUYwNEI5Q0YxNkI2OUFEQUI0N0ZFNkZGREI1RjY0RjY2RjhDRkE1ODI5ODZBMEU0MUVBMzAzQTQzREE2RkFCOTgxNzFCMzQ3MDAxNDMzNDJBOERCMjhDRjFEQzRGMUVENDAyNDRCMTU4NTUxRTlDNzk0OEVFOTU4NTZBMDI3RUFDNTI3M0E3QjMwRTdENjU1MDJERDNCMDdENzg3QTBCMUJFNzY4MDE4QzYxMkI0MzU0RkVCNENDQjUzREY3NDk5QTFBQUE1NTM2MDVFOEYwNDE3QTM0QjJGMkJENDI2NEVDRDA2MUMwQjY3REEzMTIyQzFFNzZGRkQzMkM3QjU5QTJBMTM3MzZCNzk2MjZDNzU2NTJFNzY2RjZDNzQ2MTY3NjUyRTYzNkY2RA"
+    },
+
+    "chapterX": {
+        //@config(0091, 0002)
+        // Encryption key index for encrypting card track data.
+        "keyIndex": "6",
+
+        "paddingMode": "5",
+
+        "rsaModulus": "c2cc78cf1637d2e51049e20ad53c4579f859feeeb19e6a373375ba13ef108011f3c75bdebe6073e42fee9bfacd748862876378a843050c28be91cfd9cfbeb1aa9f35f3de465f7031a783794e1217cdb69bd09260077d26eb297acf92557999f4b554e3818421b4236dc8e534486195af5d022466579cb2426fe1f877c44377beab9a1471ea4a80ace699a3fe23ad248f9394c3c63a095e1609685239151a7c1ec55dc29f3630f0fe03c408ac418e21227ccc9b93128d2c4e03754ae31a452f44239b4fecf7737ec99b91d39f7242f0cb061da38880f4aa0056723b3c34950483259806d48f6fbc6f4353aeef1c08d298f1d003eae013ad713d26a50b529a3d95",
+
+        // Label used to identify which RSA key is used for Chapter X. This is return in Chapter X response tokens.
+        "rsaKeyLabel": "N000MFFT25",
+
+        // Padding method used in the encryption of the Random Key.
+        // 1 - PKCS 1.5
+        // 2 - EPO
+        "rsaPaddingMethod": "1",
+
+        "rsaExponent": "00010001"
+    },
+
+    "rsa": {
+        //@config(0091, 0013)
+        // 2048-bits RSA public key data encoded in base64.
+        "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkTqlFYakLnldBOXv5XO1P7Gee39weuqFuAiXu7wyPQxIwyG0MvskqdO9sdHHPrZ2yhXjgtU1asIUOtLCrwg30H6UMg9VZB7yMQOU5SFYVRymlgYcVzzcWNZnhtJY0J5gyQfwpKxtJve/3sWAY6jexr4Zo4uPjBmxmHXvffMRwG+aF4qe7yv8/1IrceIZhVqVQiXw63un3djf3eHL8/+/W+5ZsxKQTIRNCsQN3ntSuNUeA+HLTur9+i1bFBUM9Rt7SeXBpUP9p0J3+NbOlrvOLq9mWOFPgVUK9TJjtUntIZCzvaN65wUh1fnBZv446gQXozpYBHUq55VXnUMRZfb+cwIDAQAB",
+        //@config(0091, 0032)
+        // RSA public key to be used for signature verification of encryption public keys for dynamic update of RSA keys.
+        "signaturePublicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkFEMz8IEAunDiAj6PhXvPGXIWoK+ssysMU9cFTppVpZUBIl2MgKvY+33GlhAQMh7MfoJKaT4S7e1n+8ByYdzRQZIHn9pnAxBIXOlFB4zoS1qOYFcrqMCHAB8K+jb0YB/uzSgUwylD9ZzklaNNZtEQhSNwMF5yrBbT9U2N3YW/H0zo3U0YvKKcZSoJC5VoQlaR264pdNpNO+bQNb8E8sTknMIZJFachtonjIFeg8za/ZhptnXeILGXTnMAOZ58BMS6UYzj02QRNmmHdcbITpnl2POHJQILJSTwT8W+hdx5qx0IDJ9QdkNOOeZT+hkdfdrrQhEGaPmMojt7o5pdkfZxQIDAQAB"
+    }
+}

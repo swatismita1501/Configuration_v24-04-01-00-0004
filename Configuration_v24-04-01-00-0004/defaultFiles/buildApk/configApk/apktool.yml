@@ -1,0 +1,13 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: Common.apk
+compressionType: false
+doNotCompress:
+isFrameworkApk: false
+sharedLibrary: false
+sparseResources: false
+unknownFiles: {}
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.4.1

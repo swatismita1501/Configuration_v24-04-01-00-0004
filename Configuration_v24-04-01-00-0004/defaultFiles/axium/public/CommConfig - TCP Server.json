@@ -1,0 +1,18 @@
+{
+    "commsType": "TcpIpServer",
+    "pcl": "none",
+    "commsConfig": {
+        "ipAddress": "0.0.0.0",
+        "port": 12000,
+        "ssl": {
+            // mode - Use SSL protocol to secure the communication channel
+            //    = none    -- Do not secure the communication channel.
+            //    = tls_v1_2 -- Use TLS version 1.2.
+            "mode": "tls_v1_2",
+
+            // certificateFile - Specifies the PKCS#12 format file containing credentials for SSL communication.
+            // Used only when "mode" is not "none".
+            "certificateFile": "filename.pfx"
+        }
+    }
+}

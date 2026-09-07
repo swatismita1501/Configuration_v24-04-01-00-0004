@@ -1,0 +1,20 @@
+{
+    "commsType": "TcpIpClient",
+    "pcl": "none",
+    "commsConfig": {
+        "ipAddress": "1.1.1.1",
+        "port": 12000,
+        "connectionTimeoutMs": 30000,
+        "connectionRetryDelayMs": 1000,
+        "ssl": {
+            // mode - Use SSL protocol to secure the communication channel
+            //    = none    -- Do not secure the communication channel.
+            //    = tls_v1_2 -- Use TLS version 1.2.
+            "mode": "none",
+
+            // certificateFile - Specifies the PKCS#12 format file containing credentials for SSL communication.
+            // Used only when "mode" is not "none".
+            "certificateFile": "filename.pfx"
+        }
+    }
+}

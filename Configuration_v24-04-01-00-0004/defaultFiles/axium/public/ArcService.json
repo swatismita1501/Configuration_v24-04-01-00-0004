@@ -1,0 +1,53 @@
+{
+    "keySequences": {
+        //Bluetooth configuration shortcut for offline screen
+        "bluetoothPairing": "4444",
+        //Communication configuration shortcut for offline screen
+        "commsConfig": "1422",
+        //ARC information shortcut for offline screen
+        "splashScreen": "1111",
+        //ARC information shortcut to hide the current activity
+        "hideActivity": "4321"
+    },
+    "service": {
+        // Determines if ARC Service starts at terminal boot or not.
+        "autoStart": "true",
+        // Determines how long ARC Service boot activity splash screen shows:
+        //    -1      = forever
+        //     0      = never, Warning: tapping ARC Service icon will show nothing.
+        //     1 - 60 = number of seconds to show
+        "splashScreenTimeout": "-1"
+    },
+
+    "trace": {
+        // Trace Categories in HEX - do not change unless directed by Ingenico.
+        "categories": "1ff",
+        // Trace Level - do not change unless directed by Ingenico.
+        "level": "4",
+        // Trace Max File Size in KB - do not change unless directed by Ingenico.
+        "maxFileSizeKb": "2048",
+        // Trace Immediate Writes - do not change unless directed by Ingenico.
+        "immediateWrites": "false"
+    },
+    
+    "uxClient": {
+        //  String Resource Package Name
+        "stringResourcePackageName": "",
+        // Indicates if UX Client uses explicit broadcast mode when communicating with UX Server.
+        // If true, UX Client uses a component name to send message via broadcast.
+        //     Component name is composed from "uxServerPackageName" and "uxServerClassName".
+        // If false, broadcasts are sent to package name defined in "uxServerPackageName".
+        "uxClientSendExplicitBroadcast": "true",
+        // Name of the package containing the UX Server broadcast receiver class.
+        // If empty uses default value - "com.ingenico.retail.ux.resources". 
+        "uxServerPackageName": "",
+        // Full or relative class name of implementation the UX Server receiver.
+        // If empty, appends ".UxServerBroadcastReceiver" to the "uxServerPackageName" parameter.
+        // If it starts with '.', appends the configured value to the "uxServerPackageName" parameter.
+        // Otherwise the configured value is used as the full class name.
+        "uxServerClassName": "",
+        // Time in which ARC and the UX Server should respond to messages between them.
+        // Valid range is 500 to 10000 milliseconds.
+        "uxMessageTimeoutMs" : "3000"
+    }
+}

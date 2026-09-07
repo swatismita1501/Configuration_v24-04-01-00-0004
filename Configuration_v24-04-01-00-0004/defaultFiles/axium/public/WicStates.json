@@ -1,0 +1,29 @@
+{
+    "comments": [
+        "Each State Authority supported can be enabled or disabled at runtime through",
+        "configuration in this file.",
+        "Each line is 'state: yes | no', where:",
+        "    'state' is the 2 character abbreviation for the State Authority.",
+        "    'yes' or 'no' indicates whether the State Authority is enabled for use at runtime.",
+        "State Authorities omitted are disabled at runtime.",
+        "This file is case insensitive."
+    ],
+    "states": {
+        "AR": "yes",
+        "C2": "yes",
+        "NM": "yes",
+        "OH": "yes",
+        "TX": "yes",
+        "WY": "yes",
+        "PA": "yes",
+        "LA": "yes",
+        "MO": "yes",
+        "UT": "yes",
+        "F1": "yes",
+        "E1": "yes",
+        "A1": "yes",
+        "S1": "yes",
+        "Z1": "yes",
+        "S3": "yes"
+    }
+}

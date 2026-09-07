@@ -1,0 +1,32 @@
+#KEY INJECTION FORMAT
+#KEY INJECTION FORMAT
+#KEY_LOCATION,USAGE,KEY_VALUE,BLOCK_FORMAT,KCV,KSN
+#================================================
+# All keys are injected in the clear except for Session keys 
+#	multiple MK can be defined, corresponding session keys need to be following the MK definition before another MK is defined
+# KEY_VALUE is encrypted key value (will take any value, if not doing Key Verification Calculation
+# KEY_VALUE for DUKPT is the initial key (IK), this is in the clear
+# BLOCK_FORMAT supported format are CLEAR TDES_ECB TDES_CBC AES192 TR31 
+# KCV when set to 0, any data in KEY VALUE will be injected and used as valid key. 
+# KSN for DUKPT only, 0 for all other key types
+#KEY_LOCATION, USAGE,   KEY_VALUE,                                                        BLOCK_FORMAT, KCV, KSN
+D0,            GENERIC, 6AC292FAA1315B4D858AB3A3D7D5933A,                                 CLEAR,        0,   FFFF9876543210E00000
+D1,            GENERIC, 1234567890ABCDEFFEDCBA0987654321,                                 CLEAR,        0,   FFFF9876543210E00000
+D2,            ONGUARD, 6AC292FAA1315B4D858AB3A3D7D5933A6AC292FAA1315B4D858AB3A3D7D5933A, AES,          0,   FFFF9876543210E000000000
+D3,            ONGUARD, 6AC292FAA1315B4D858AB3A3D7D5933A6AC292FAA1315B4D,	              AES,          0,   FFFF9876543210E000000000
+D4,            ONGUARD, 6AC292FAA1315B4D858AB3A3D7D5933A,	                              AES,          0,   FFFF9876543210E000000000
+D5,            ONGUARD, 6AC292FAA1315B4D858AB3A3D7D5933A,                                 CLEAR,        0,   FFFF9876543210E00000
+D6,            GENERIC, 1234567890ABCDEFFEDCBA0987654321,                                 CLEAR,        0,   FFFF9876543210E00000
+D7,            GENERIC, 6AC292FAA1315B4D858AB3A3D7D5933A6AC292FAA1315B4D858AB3A3D7D5933A, AES,          0,   FFFF9876543210E000000000
+D8,            GENERIC, 6AC292FAA1315B4D858AB3A3D7D5933A6AC292FAA1315B4D,                 AES,          0,   FFFF9876543210E000000000
+D9,            ONGUARD, 6AC292FAA1315B4D858AB3A3D7D5933A,                                 CLEAR,        0,   FFFF9876543210E00000
+#KEY_LOCATION, USAGE,   KEY_VALUE,                                                        BLOCK_FORMAT, KCV, KSN
+M0,            PIN,     01111111111111112222222222222220,                                 CLEAR,        0,   0
+M1,            MAC,     11111111111111112222222222222221,                                 CLEAR,        0,   0
+#KEY_LOCATION, USAGE,   KEY_VALUE,                                                        BLOCK_FORMAT, KCV, KSN
+S0,            PIN,     D516CD8FC30B9066853EA704903389BC,                                 TDES_ECB,     0,   0
+# CLEAR SK DATA:        11111111111111130222222222222222 encrypted by the corresponding MK definition
+S1,            MAC,     F4FFBA967ADB1EE9A7378AC5F6BAB19B,                                 TDES_ECB,     0,   0
+# CLEAR SK DATA:        11111111111111131222222222222222 encrypted by the corresponding MK definition
+T6,            WMK,     FEDCBA98765432100123456789ABCDEF,                                 CLEAR,        0,   0
+T3,            VKBPK,   527546E308428793E263E604F95DD817BDB2CB3FE46559000E9418451F279242, AES,          0,   0

@@ -1,0 +1,261 @@
+{
+    "ads": {
+        //@config(0010, 0011 - 0040)
+        //  NOTE! Ad durations are only used if ads are set to cycle!
+        //  NOTE! In order for ad scheduling to work, the device's date & time must be set via the 28. message!
+        //
+        //        File name (Images must be in upper case and a supported image type.
+        //                 .HTM files may be either case but must match the file.)
+        //        |||||||||||| Duration in 1/10th of seconds (0 = no timeout)
+        //        |||||||||||| |||
+        //        |||||||||||| ||| Day to display this ad (0 = Do not display, 1 = Display)
+        //        |||||||||||| ||| SMTWTFS
+        //        |||||||||||| ||| ||||||| Start  End  (Time of day to display this ad. Use 24 hour
+        //        |||||||||||| ||| ||||||| HH:MM HH:MM  format. Start time must be before end time.)
+        //        |||||||||||| ||| ||||||| ||||| |||||
+        //        |||||||||||| ||| ||||||| ||||| ||||| Mode
+        //        |||||||||||| ||| ||||||| ||||| ||||| Offline
+        //        |||||||||||| ||| ||||||| ||||| ||||| |During transaction
+        //        |||||||||||| ||| ||||||| ||||| ||||| ||End of transaction
+        //        |||||||||||| ||| ||||||| ||||| ||||| |||
+        "ad.01": "",
+        "ad.02": "",
+        "ad.03": "",
+        "ad.04": "",
+        "ad.05": "",
+        "ad.06": "",
+        "ad.07": "",
+        "ad.08": "",
+        "ad.09": "",
+        "ad.10": "",
+        "ad.11": "",
+        "ad.12": "",
+        "ad.13": "",
+        "ad.14": "",
+        "ad.15": "",
+        "ad.16": "",
+        "ad.17": "",
+        "ad.18": "",
+        "ad.19": "",
+        "ad.20": "",
+        "ad.21": "",
+        "ad.22": "",
+        "ad.23": "",
+        "ad.24": "",
+        "ad.25": "",
+        "ad.26": "",
+        "ad.27": "",
+        "ad.28": "",
+        "ad.29": "",
+        "ad.30": "",
+        //@config(0010, 0001)
+        //  Offline advertising mode:
+        //    0 = Off
+        //    1 = display single ad
+        //    2 = display single ad changing each time terminal goes offline
+        //    3 = cycle thru all ads once (timed)
+        //    4 = cycle thru all ads and repeat (timed)
+        "offlineAdType": "none"
+    },
+    "eft": {
+        "05": {
+            //@config(0013, 0025)
+            //  Asynchronous Status Message 05 Enablement for enhanced async reporting
+            //    false = backward compatible, no async 05 message notification (default)
+            //    true  = send 05 async notification message for 20, 21, 23, 24, 25, 27, 31, 35, 41, 87 messages
+            "enabled": "false"
+        },
+        "11": {
+            //@config(0013, 0002)
+            //  When msg11.x is received in the off-line mode, response with:
+            //    false = <STX><11.><00><text><ETX>        - response with status.
+            //    true  = <STX><00.><offLine code><ETX>    - response with off-line msg.
+            "sendResponse": "false"
+        },
+        "23": {
+            //@config(0013, 0014)
+            //  Add source field to Card Response (23.) message.
+            //    0 = Do not include source (Compatible with previous versions.)
+            //    1 = Add source of card data to message.
+            //    2 = Add source of card data and extended card information to message
+            "dataInResponse": "1"
+        },
+        "25": {
+            //@config(0007, 0019)
+            //  Control the behavior of the Accept/Decline buttons on Terms and
+            //  Conditions forms
+            //    0 = Show/Allow both Accept and Decline buttons regardless of the
+            //        current position in the text
+            //    1 = Deprecated. Will function the same as value 2.
+            //    2 = Show/Allow the Accept button only at the bottom of the text.
+            //        Show/Allow the Decline button regardless of the current position
+            //        in the text.
+            //    3 = Show/Allow both Accept and Decline buttons only at the bottom of
+            //        the text.
+            "buttonOptions": "0"
+        },
+        "41": {
+            //@config(0200, 0002)
+            //  Allow requesting disabled readers when sending 41.x
+            //    false = enable requested readers, ignore the ones that are disabled
+            //    true  = check if all requested readers are enabled, send error otherwise
+            "reportErrorForDisabledDevices": "true",
+            //@config(0013, 0026)
+            //  By default,in 41.x response Source field is 'S'(Smart Card(SMC)) for bad read
+            //    false = 41.x error response Source field is filled with 'S'
+            //    true  = 41.x error response Source field is filled with 'P'(Problem)
+            "reportMuteSmcAsProblem": "false",
+            //@config(0013, 0027)
+            //  By default, in 41.x response Encryption type is set to the encrpytion method value.
+            //    false = 41.x response Encryption type is set according to the encryption method
+            //    true  = 41.x response Encryption type is '99' if only card is whitelisted
+            "reportWhitelistingAsEncryptionType": "false"
+        },
+        //@config(0200, 0001)
+        //  Message 10.x and 15.x behavior
+        //    true - works as legacy online: 10.x - hard reset; 15.x - resets according to specification
+        //    false - works as legacy offline: 10.x and 15.x return 00.2000 (except 15.6 and 15.8)
+        "alwaysAllowReset": "false",
+        //@config(0007, 0028)
+        //  Allow an On-Demand function to automatically cancel any currently
+        //  running On-Demand function as if a soft reset message 15.6 had been
+        //  sent preceding it.
+        //    false = Do not automatically cancel running On-Demand functions.
+        //    true  =        Automatically cancel running On-Demand functions.
+        "cancelOnDemandCommand": "true",
+        //@config(0007, 0007)
+        //  Clear line item display on reset
+        "clearLineItemsOnReset": "true",
+        // Encoding used in transmission
+        // The valid values are:
+        // UTF-8       Unicode
+        // ISO-8859-1  Extended ASCII
+        "encoding": "UTF-8",
+        //@config(0013, 0003)
+        //  Assume an ACK was received if a message is received in response to a sent message
+        //    false = Wait for an ACK
+        //    true  = Treat a received message as an ACK
+        "messageEqualsAck": "false",
+        //@config(0013, 0011)
+        // When enabled delays the sending of ACK until the message is being dispatched.
+        "delayAck": "true"
+    },
+    "emv": {
+        //@config(0019, 0012)
+        //  Enable EMV Transaction Response Message
+        "transactionResponseMessage": "true"
+    },
+    "input": {
+        //@config(0007, 0001)
+        //  Duration to display results of 20, 21./27, 23., 24., 25., 26., 31. and 35. commands
+        //    0  = do not show
+        //    1  = show but no timeout
+        //    2  = use individual flags (MsgXXResultTimeout)
+        //    >2 = time in 1/10ths seconds
+        "displayResultOption": "0",
+        //@config(0013, 0022)
+        //  By default, handle clear text input entry 'Cancel' button :
+        //    false = as input entry 'Cancel'
+        //    true  = as input entry 'Clear' (if any digits/chars entered)
+        "handleCancelAsClear": "false",
+        "timeouts": {
+            //@config(0007, 0037 - 0043)
+            //  Set display timeout for on-demand message result individually per-message.
+            //  These parameters are only used when parameter inputResultTimeout is set to 2.
+            "msg20Tenths": "30",
+            "msg21Tenths": "30",
+            "msg23Tenths": "30",
+            "msg24Tenths": "30",
+            "msg25Tenths": "30",
+            "msg27Tenths": "30",
+            "msg31Tenths": "30",
+            ////@config(0007, 0059)
+            //  Set display timeout for on-demand menu message result.
+            //  This parameter is only used when parameter inputResultTimeout is set to 2.
+            "msg35Tenths": "30"
+        }
+    },
+    "lineDisplay": {
+        //@config(0013, 0006)
+        // Enable horizontal compression for line display.
+        "enableLineCompression": "true"
+    },
+    "manualEntry": {
+        // The timeout in seconds between two input actions.
+        "actionTimeoutSeconds": "30",
+        // Controls the order in which the expiration date's month and year are entered:
+        //    MMYY enters month first, then year.
+        //    YYMM enters year first, then month.
+        //    Defaults to MMYY.
+        "expDateEntryFormat": "MMYY",
+        //@config(0007, 0027)
+        //  Maximum number of digits required for a hand entered card. Valid range is 8 to 19.
+        "maxPanLength": "19",
+        //@config(0007, 0026)
+        //  Minimum number of digits required for a hand entered card. Valid range is 8 to 19.
+        "minPanLength": "8",
+        //@config(0007, 0029)
+        //  Display the "Enter Card" button at the bottom of the card swipe screen
+        //    0 = Do not display
+        //    1 = Display button and prompt for card #, Exp date, and CVV
+        //    2 = Display button and prompt for card #, Exp date, but no CVV
+        //    3 = Display button and prompt for card #, CVV, but no Exp date
+        //    4 = Display button and prompt for card # only
+        //    5 = Do not display, enable Dynamic Manual Entry for Forced Manual
+        //    6 = Display button and prompt using Dynamic Manual Entry via 19.X
+        "mode": "0",
+        // The overall timeout of manual entry screen, in seconds.
+        "ScreenTimeoutSeconds": "180",
+        // Default CVV for manual entry to be used when CVV is not entered.
+        "defaultCvv": "0000",
+        // Default expiration date (MMYY format) for manual entry to be used when expiration date is not entered.
+        "defaultExpDateMmYy": "1299"
+    },
+    "signature": {
+        //@config(0009, 0015)
+        //  Incude block count in message response to send when signature ready.
+        //  This applies only if SendMessage is set to true.
+        //    false = no message body ("20.")
+        //    true  = "20.0x" where "x" is the number of sig blocks (can be 0 if no sig)
+        "blockCountInResponse": "true",
+        //@config(0009, 0012)
+        //  Number of data bytes in a signature block (1-1000)
+        "blockSize": "200",
+        //@config(0009, 0005)
+        //  Signature Format
+        //    9 = 3-byte ASCII (default)
+        //    11 = L format
+        //    13 - Raw data passthrough
+        "format": "9",
+        //@config(0009, 0007)
+        //  Minimum acceptable signature size in points
+        "minSignaturePoints": "1",
+        //@config(0009, 0017)
+        //  Rebase XY coordinates. Xmin -> 0, Ymin -> 0; default = true
+        "rebase": "true",
+        //@config(0009, 0016)
+        //  Scaling signature factor; apply to 3 Bytes Ascii signature format only
+        //  Valid value from 0 - 5
+        "scalingFactor": "1",
+        //@config(0009, 0002)
+        //  Send message when signature ready
+        "sendResponse": "true",
+        "timeouts": {
+            //@config(0009, 0001)
+            //  Max time allowed for signature (from first screen touch)
+            //    0 = Disabled
+            //    1 or greater = time in 1/10ths seconds
+            "completionTenths": "0",
+            //@config(0009, 0013)
+            //  Automatic signature acceptance timeout
+            //    0 = Disabled
+            //    1 or greater = time in 1/10ths seconds
+            "penUpTenths": "0",
+            //@config(0009, 0004)
+            //  Max time to allow before signature start
+            //    0 = disabled
+            //    1 or greater = time in 1/10ths seconds
+            "startTenths": "0"
+        }
+    }
+}
